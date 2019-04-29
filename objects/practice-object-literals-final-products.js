@@ -25,37 +25,70 @@ If your program is stuck in an infinite loop, you can break out of the program b
 
 // 7. Run your code by typing node 3_final_products.js in the console below
 
-// Step one
-var products = []; 
 
 // Step two
-var products = [
+let products = [
+    // index value 0
     {
         name: 'Book',
         inventory: 10,
         unit_price: 45.99
-    }, 
+    },
+    // index value 1
     {
         name: 'CD',
         inventory: 4,
         unit_price: 23.99
-    }, 
+    },
+    // index value 2
     {
         name: 'Newspaper',
         inventory: 120,
         unit_price: 3.99
     }
-]; 
+];
 // returns Book
 // console.log(products[0].name); 
 
-
 // Step three
 function listProducts(prods) {
-   let product.names = [];
-   for (let i = 0; i < prods.length; i+= 1) {
-       product_names.push(prods[i].name);
-   }
-   return product_names; 
-}; 
+    // because the function returns a list, first need to create an empty array to store that
+    let product_names = [];
+    // loop through the array of each product, retrieve the name of each product
+    // creates a counter variable, each time through the loop, compares i to the passed in array of objects and exits as soon as that item is equal to the number of items in the array
+    // runs the code the same number of times as there are array items
+    // in the above, there are 3 items, so the loop will run 3 times
+    for (let i = 0; i < prods.length; i += 1) {
+        // to access the name of each object, first need to access the object using array notation  
+        // prods[i] accesses the first item in the array as you've assigned i = 0; above
+        // as the loop runs, the value of i increases
+        // to access the name property, use prods[i].name - dot syntax
+        // use push to push the product names onto the end of the array
+        product_names.push(prods[i].name);
+    }
+    // return the array
+    return product_names;
+};
 
+// Step four
+console.log(listProducts(products)); 
+
+
+// Step five
+function totalValue(prods) {
+
+    // create a variable to hold the calculations
+    let inventory_value = 0;
+    // setup a loop to cycle through each object
+    for (let i = 0; i < prods.length; i += 1) {
+        // each time through the loop, add to the inventory_value variable by multiplying the total number of the current product in stock with the unit price of that product
+        // add to the inventory_value variable the calculation
+        // loop through the array, make the same calculation for each product, and add it to the inventory_value variable
+        inventory_value += prods[i].inventory * prods[i].unit_price;
+    }
+    // then return that variable
+    return inventory_value;
+}
+
+// Step six
+console.log(totalValue(products)); 
