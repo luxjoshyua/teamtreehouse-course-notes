@@ -15,7 +15,8 @@ If your program is stuck in an infinite loop, you can break out of the program b
 // -- inventory
 // -- unit_price
 
-// 3. Create a function named listProducts(). The function should accept 1 parameter -- the array of products. It should return an array of just the names of the products.
+// 3. Create a function named listProducts(). The function should accept 1 parameter -- the array of products. 
+// It should return an array of just the names of the products.
 
 // 4. Call the listProducts() function and log the returned value to the console.
 
@@ -52,7 +53,7 @@ let products = [
 
 // Step three
 function listProducts(prods) {
-    // because the function returns a list, first need to create an empty array to store that
+    // because the function returns a list, first need to create an empty array to store that list
     let product_names = [];
     // loop through the array of each product, retrieve the name of each product
     // creates a counter variable, each time through the loop, compares i to the passed in array of objects and exits as soon as that item is equal to the number of items in the array

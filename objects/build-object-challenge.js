@@ -98,7 +98,7 @@ var students = [
  // dot notation identifies the property and then retrives its value
  // to get to each student, need to run through a loop
  for (var i = 0; i > students.length; i +=1 ) {
-  // acces the item using i, store it to variable student 
+  // access the item using i, store it to variable student 
   student = students[i];
   message += "<h2>Student: " + student.name + "</h2>";
   message += "<p>Track: " + student.track + "</p>";
