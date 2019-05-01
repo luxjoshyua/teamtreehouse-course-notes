@@ -18,51 +18,50 @@ var quotes = [
 
   // quote one
   {
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur, dolor eu pretium aliquet, velit ipsum semper nisi, ut blandit ligula leo tempor turpis.',
+    quote: 'Political power grows out of the barrel of a gun.',
     source: 'Mao',
-    citation: 'Wikipedia',
-    year: 2019
+    year: 1938,
+    citation: 'Wikipedia'
   },
 
   // quote two
   {
-    quote: 'Fusce maximus, elit sit amet interdum tempus, elit odio lacinia sapien, quis fermentum tellus diam et odio. Vestibulum pharetra dolor nec vestibulum pellentesque.',
+    quote: 'Mankind is divided into rich and poor, into property owners and exploited; and to abstract oneself from this fundamental division; and from the antagonism between poor and rich means abstracting oneself from fundamental facts.',
     source: 'Stalin',
     citation: 'Wikipedia',
-    year: 2019
+    year: 1930
   },
 
   // quote three
   {
-    quote: 'Quisque sit amet turpis fermentum, auctor risus in, lobortis ipsum. Suspendisse potenti. Nunc ornare erat sit amet tortor ultricies, id rhoncus ipsum ultricies.',
+    quote: 'The history of all hitherto existing society is the history of class struggles.',
     source: 'Karl',
     citation: 'Wikipedia',
-    tag: 'Hope',
+    tag: 'Struggle',
     year: 2019
   },
 
   // quote four
   {
-    quote: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam pretium fermentum massa non eleifend.',
+    quote: 'Man will become immeasurably stronger, wiser, and subtler; his body will become more harmonious, his movements more rhythmic, his voice more musical. The forms of life will become dynamically dramatic. The average human type will rise to the heights of an Aristotle, a Goethe, or a Marx. And above these heights, new peaks will rise.',
     source: 'Leonid',
     citation: 'Wikipedia',
     tag: 'Hope',
-    year: 2019
+    year: 1912
   },
 
   // quote five
   {
-    quote: 'Phasellus fermentum gravida ligula, faucibus pulvinar ipsum feugiat a. Morbi tristique consequat augue, nec rhoncus nulla elementum non.',
+    quote: 'Without revolutionary theory there can be no revolutionary movement.',
     source: 'Vladimir',
-    citation: 'Wikipedia',
+    citation: 'Dogmatism and "Freedom of Criticism"',
     tag: 'Hope',
-    year: 2019  
+    year: 1902  
   }
 
 ];
 
 console.log(quotes); 
-
 
 /***
  
@@ -78,8 +77,6 @@ console.log(quotes);
 ***/
 
 
-// you need to pass parameters to the function - quotes[i].quote? 
-
 // create the function getRandomQuote()
 function getRandomQuote() {
   // generate a random number between 0 and the last index in the array parameter
@@ -87,6 +84,9 @@ function getRandomQuote() {
   // return the randomly selected quote object
   return randomQuote; 
 }
+
+// Create a random colour function
+
 
 /***
   Create the `printQuote` function to: 
@@ -103,45 +103,72 @@ function getRandomQuote() {
 
 function printQuote() {
 
-  // Call the `getRandomQuote` function and assign it to a variable.
+  // Call the `getRandomQuote` function and assign it to a variable, then use it to build the string below
   let randomQuoteCall = getRandomQuote(); 
 
   // Create a variable for the HTML string and set it equal to an empty string.
   let html = ''; 
 
-  // Add the quote and source section to the HTML string.
+  // parent div here
+  let parentDiv = document.getElementById('quote-box'); 
+  
+  // mark the variable (quoteDiv), attach it to a new element
+  let quoteDiv = document.createElement("p");
+  quoteDiv.classList.add("quote"); 
+
+  // mark the variable, attach it to the random quote generator variable
+  let quoteCopy = document.createTextNode(randomQuoteCall.quote);
+
+  quoteDiv.appendChild(quoteCopy); 
+
+  parentDiv.appendChild(quoteDiv); 
+
 
 
   // Use an if statement to check for the citation property before adding it to the HTML string.
  
-  if (randomQuote.citation) {
-    html += ""
+  if (randomQuoteCall.citation) {
+
+    // created div, need to insert random citation into child div
+    let citation = document.createElement("span"); 
+
+    // add the class of citation
+    citation.classList.add("citation"); 
+
+    let citationCopy = document.createTextNode(randomQuoteCall.citation); 
+
+    citation.appendChild(citationCopy); 
+
+    // insert into the parentDiv variable created above, append the citation div here to it
+    parentDiv.appendChild(citation);
+
   }
 
   // Use an if statement to check for the year property before adding it to the HTML string.
 
-  if (randomQuote.year) {
+  if (randomQuoteCall.year) {
 
-    html += 
+    let year = document.createElement("span"); 
+
+    // add the class of year 
+    year.classList.add("year"); 
+
+    let yearCopy = document.createTextNode(randomQuoteCall.year); 
+
+    // attach yearCopy 
+    year.appendChild(yearCopy);
+
+    // appendChild year to the parentDiv
+    parentDiv.appendChild(year); 
 
   }
 
-  if (randomQuote.citation) {
-    html += 
-  }
-
-  
-  // close the string with the necessary closing HTML tags
-
-  // set the innerHTML of the .quote-box to the complete HTML string
-
-
+  // check the parentDiv is logging
+  console.log(parentDiv);
 
 }
 
-printQuoteHTML(); 
-
-
+printQuote(); 
 
 
 
@@ -152,7 +179,7 @@ printQuoteHTML();
   comment.
 ***/
 
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
