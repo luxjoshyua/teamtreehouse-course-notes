@@ -23,7 +23,7 @@ var html = '';
 var rgbColor; 
 
 function genRan8BitNum(){
-  // return is used to exit the function and return a single value   to wherever the function is called
+  // return is used to exit the function and return a single value to wherever the function is called
    return Math.floor(Math.random() * 256);
  }        
 
