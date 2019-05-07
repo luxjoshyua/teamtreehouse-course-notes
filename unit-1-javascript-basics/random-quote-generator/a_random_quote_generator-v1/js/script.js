@@ -123,6 +123,10 @@ function printQuote() {
 
   parentDiv.appendChild(quoteDiv); 
 
+  // add source and class
+  // let sourceDiv = document.createElement("p"); 
+  // sourceDiv.classList.add("source"); 
+  // let sourceDiv = document.createTextNode(randomQuoteCall.source); 
 
 
   // Use an if statement to check for the citation property before adding it to the HTML string.
@@ -136,13 +140,34 @@ function printQuote() {
     citation.classList.add("citation"); 
 
     let citationCopy = document.createTextNode(randomQuoteCall.citation); 
-
+    
     citation.appendChild(citationCopy); 
 
     // insert into the parentDiv variable created above, append the citation div here to it
     parentDiv.appendChild(citation);
 
   }
+
+  // source citation
+
+  if (randomQuoteCall.source) {
+
+    // created p, need to insert source citation into child div
+    let source  = document.createElement("p");
+
+    // add the class of source
+    source.classList.add("source"); 
+
+    let sourceCopy = document.createTextNode(randomQuoteCall.source); 
+
+    source.appendChild(sourceCopy);
+
+    // appendChild source to the parentDiv
+    parentDiv.appendChild(source); 
+  
+
+  }
+
 
   // Use an if statement to check for the year property before adding it to the HTML string.
 
@@ -152,7 +177,6 @@ function printQuote() {
 
     // add the class of year 
     year.classList.add("year"); 
-
     let yearCopy = document.createTextNode(randomQuoteCall.year); 
 
     // attach yearCopy 
