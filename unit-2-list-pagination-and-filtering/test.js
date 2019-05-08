@@ -1,10 +1,7 @@
-const taxRate = 8.5;
+let name = "Smith";
 
-function calculateTax(cost, tax) {
-    taxRate = tax;
-    return (cost * taxRate) / 100;
+function formalName(title, name) {
+    return `${title} ${name}`;
 }
-
-console.log(calculateTax(100, 10)); 
-
-// Syntax error: Assignment to constant variable
+console.log(`Hello ${formalName("Mrs.", name)}, How are you?`); 
+// Hello Mrs. Smith, How are you?
