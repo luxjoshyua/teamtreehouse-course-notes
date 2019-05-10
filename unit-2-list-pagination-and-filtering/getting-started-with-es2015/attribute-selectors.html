@@ -1,0 +1,62 @@
+<div id="main-content" class="box" title="Tooltip">
+    ...
+</div>
+
+<!-- to target that div in css, you would write (obviously without <style>) -->
+<style>
+    [title] {
+        color: indigo;
+    }
+
+    /* to be more specific, you could write */
+    div[title] {
+        padding: 15px;
+    }
+
+    /* this only targets div elements with a title attribute */
+
+    /* to make it even more specific, you could match only a div element whose title value is tooltip */
+    div[title="Tooltip"] {
+        border: 1px solid lemonchiffon;
+    }
+
+    /* attributes are often used for targeting form elements */
+    input[type="text"] {
+        background: cornsilk;
+    }
+
+    input[type="password"] {
+        color: gainsboro;
+    }
+
+    button[type="submit"] {
+        border: 2px solid forestgreen;
+    }
+
+    /* you group 2 or more selectors using a comma (,) separator */
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        cursor: pointer;
+    }
+
+    /* targets an img element with a title attribute value of "avatar" */
+    img[title="avatar"] {
+        border-radius: 50%;
+    }
+
+    /* targets input elements with a type attribute value of password */
+    input[type="password"] {
+        color: #ccc;
+    }
+
+    /* targets input elements with a type attribute value of submit */
+    input[type="submit"] {
+        background-color: #52bab3;
+    }
+
+    /* select an input element with a type attribute value of reset */
+    input[type="reset"] {
+        background-color: tomato;
+    }
+</style>
