@@ -1,0 +1,97 @@
+<!-- Pseudo-classes 
+    - specify a special state of the selected element
+    - select elements based on a state
+    - select elements based on their position in the document
+
+-->
+
+<!-- 
+    :link
+
+    The :link pseudo-class targets unvisited links – or links that have not been clicked by the user. 
+    For example, the CSS rule below selects all unvisited links on the page and sets their text color to orange:
+
+    a:link {
+        color: orange;
+    }
+ -->
+
+
+<!-- 
+    :visited
+    
+    By default, most browsers set the color of visited links to purple. You can use the :visited pseudo-class to target links that have been visited (or clicked). 
+    This rule selects all visited links on the page and applies a new color and border-bottom styles.
+
+    a:visited {
+        color: lightblue;
+        border-bottom: 1px dashed;
+    }
+
+ -->
+
+<!-- 
+
+    :first-child
+
+    The :first-child pseudo-class targets the first element among a group of sibling elements. 
+    For example, the following will select only the list element that is the first child of its parent:
+
+    li:first-child {
+        background: #52bab3;
+        color: white;
+    }
+
+  -->
+
+<!-- 
+
+    :last-child
+    
+    The :last-child pseudo-class targets the last child of its parent.
+
+    li:last-child {
+         border-bottom: none;
+    }
+
+    The selector shown above matches only the <li> in a list and removes a border-bottom style. 
+    It doesn't matter how many list items you add or remove from the list, the last item will always be the one selected.
+
+  -->
+
+  <!-- 
+
+    :nth-child
+
+    The :nth-child() pseudo-class targets elements based on their position within a parent element. :nth-child() uses a function-like syntax that accepts a value between the parentheses. 
+    The value is referred to as an argument.
+
+    -- Select Even Elements Within a Parent --
+    The keyword even specifies that you want to target all the even-numbered elements.     
+    For example, the selector li:nth-child(even) matches the 2nd, 4th, 6th (etc.) <li> elements within a <ul>:
+    
+    li:nth-child(even) {
+        color: white;
+        background-color: springgreen;
+    }
+
+    -- Select Odd Elements Within a Parent --
+    The keyword odd specifies that you want to target all the odd-numbered elements. The following selector matches the 1st, 3rd, 5th (etc.) <li> elements within a <ul>:
+    
+    li:nth-child(odd) {
+        color: white;
+        background-color: turquoise;
+    }
+
+    -- Passing a Number to Target a Child Element --
+    You can also pass an integer as an argument to target a specific child element. 
+    When calculating the position of an element inside its parent, the index numbering starts at 1.
+
+    li:nth-child(3) {
+        color: white;
+        background-color: thistle;
+    } 
+
+    The browser targets only the 3rd list item inside the parent <ul>.
+
+   -->

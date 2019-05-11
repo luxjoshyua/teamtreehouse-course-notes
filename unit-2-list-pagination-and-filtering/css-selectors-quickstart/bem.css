@@ -1,0 +1,64 @@
+/* 
+-- BEM = Block Element Modifier --
+
+- with BEM, you describe the markup in terms of blocks, elements, and modifiers
+
+html
+<ul class="nav">
+  <li class="nav__item"><a href="#type">Typography</a></li>
+  <li class="nav__item"><a href="#buttons">Buttons</a></li>
+  <li class="nav__item--current"><a href="#nav">Navigation</a></li>
+</ul>
+
+css
+.nav {...}
+.nav__item {...}
+.nav__item--current {...}
+
+- The class nav is considered a 'block' -- an independent component of the page
+- The class nav__item is an 'element' that belongs to the nav block only
+- nav__item--current is a 'modifier' class that makes changes to a block and its elements
+
+*/
+
+
+/* 
+
+list is the block
+list__item is the element
+list__item--highlight is the modifier
+
+<ul class="list">
+  <li class="list__item">Item 1</li>
+  <li class="list__item list__item--highlight">Item 2</li>
+  <li class="list__item list__item--end">Item 3</li>
+</ul>
+
+.list-item {
+  display: block;
+  font-size: 1rem; 
+}
+
+.list__item--highlight {
+  color: white;
+  background: yellow;
+}
+
+.list__item--end {
+  background-color: red;
+  text-transform: uppercase; 
+}
+
+
+*/
+
+/*
+-- Classes and JS --
+- use a prefix (or hook) like js-, if a class will be used for JavaScript only
+- this helps distinguish between classes used for styling and those for JavaScript functionality
+
+<ul class="nav js-site-nav">
+  ...
+</ul>
+
+*/
