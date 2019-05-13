@@ -37,7 +37,6 @@ document.querySelector('.error-not-purple').style.color = "red";
 // select the p element with a title of label
 document.querySelector('[title=label]').style.textTransform = 'uppercase';
 
-
 // select with pseudo class even
 const evens = document.querySelectorAll('li:nth-child(even)');
 

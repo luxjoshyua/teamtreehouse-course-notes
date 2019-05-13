@@ -3,7 +3,6 @@ document.getElementsByTagName('element here!');
 // returns a collection of h1 elements, but in this example there is only 1, select the first in the collection
 const myHeading = document.getElementsByTagName('h1')[0]; 
 
-
 // => <ul id="a">
 const el = document.getElementById('a');
 
@@ -41,9 +40,3 @@ for ( let i = 0; i < myList.length; i+= 1 ) {
     // make each one purple
      myList[i].style.color = 'purple';
 }
-
-
-
-
-
-
