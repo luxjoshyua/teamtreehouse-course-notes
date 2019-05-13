@@ -1,3 +1,4 @@
+/*
 <html>
     <h1 id="myHeading">JavaScript and the DOM</h1>
     <p>Making a web page interactive</p>    
@@ -11,6 +12,7 @@
       <li>plums</li>
     </ul>
 </html>
+*/
 
 
 const input = document.querySelector('input');

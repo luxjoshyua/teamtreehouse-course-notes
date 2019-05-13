@@ -1,3 +1,4 @@
+/* 
 <html>
 <h1 id="myHeading">JavaScript and the DOM</h1>
 <p>Making a web page interactive</p>    
@@ -20,6 +21,7 @@
   </div>
 
 </html>
+*/
 
 const toggleList = document.getElementById('toggleList');
 const listDiv = document.querySelector('.list');
