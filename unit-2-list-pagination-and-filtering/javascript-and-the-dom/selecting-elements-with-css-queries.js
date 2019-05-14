@@ -53,7 +53,6 @@ for ( let i = 0; i < evens.length; i+= 1 ) {
      evens[i].style.backgroundColor = 'lightcoral';
 }
 
-
 // Example rainbow list
 <html>
 <ul id="rainbow">

@@ -14,7 +14,6 @@ const paragraph = document.getElementById('paragraph');
 const myButton = document.getElementById('myButton');
 const myTextInput = document.getElementById('myTextInput');
 
-
 // listen for user mouseclicks
 // click is the first parameter passed in, then run the function
 myHeading.addEventListener('click', () => {
