@@ -10,37 +10,34 @@ h1.style.color = "pink";
 document.querySelector('.desc').innerHTML = 'Text goes here!'; 
 
 // 4: Set the class of the <ul> to 'list'
-document.getElementsByTagName('ul')[0].className = 'list';
+const list = document.querySelector('ul');
+list.className = 'list';  
 
 // 5: Create a new list item and add it to the <ul>
-var newListItem = document.createElement('li');
-let ul = document.querySelector('ul'); 
-ul.appendChild(newListItem); 
+const item = document.createElement('li');
+item.innerHTML = "<input>Eat ice cream";
+list.appendChild(item); 
 
 // 6: Change all <input> elements from text fields to checkboxes
-// document.querySelector('input').type = 'checkbox'; 
-
-const i = document.getElementsByTagName('li').type = 'checkbox'; 
-
+const input = document.getElementsByTagName('input');
+for (let i = 0; i < input.length; i += 1) {
+  input[i].type = 'checkbox'; 
+}
 
 // 7: Create a <button> element, and set its text to 'Delete'
 // Add the <button> inside the '.extra' <div>
-const btn = document.createElement('button'); 
-btn.innerHTML = 'Delete me';
-document.querySelector('.extra').appendChild(btn); 
+// const btn = document.createElement('button'); 
+// btn.innerHTML = 'Delete me';
+// document.querySelector('.extra').appendChild(btn); 
 
+const deleteButton = document.createElement('button');
+deleteButton.textContent = 'Delete';
+
+const extra = document.querySelector('.extra');
+extra.appendChild(deleteButton); 
 
 // 8: Remove the '.extra' <div> element from the DOM when a user clicks the 'Delete' button
-const removeItemButton = document.querySelector('button'); 
-
-removeItemButton.addEventListener('click', () => {
-
-  const removeBtn = document.querySelector('button'); 
-  
-  const extraDiv = document.querySelector('.extra p'); 
-
-  removeBtn.removeChild(extraDiv); 
-
-  // extraDiv.removeChild(removeBtn); 
-});
-
+const container = document.querySelector('.container');
+deleteButton.addEventListener('click', () => {
+  container.removeChild(extra); 
+})
