@@ -1,9 +1,4 @@
-function exec(func, arg) {
-  func(arg); 
-}
-
-exec(function say(something) {
-  console.log(something); 
-}, 'Hi, there'); 
-
-// Prints Hi, there to the console
+const button = document.querySelector('button.cancel');
+button.addEventListener('click', () => {
+  console.log('I clicked the button');
+});
