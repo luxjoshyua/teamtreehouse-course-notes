@@ -7,12 +7,14 @@
       <li>List Item 2</li>
       <li>List Item 3</li>
     </ul>
+
 const li = document.querySelector('li');
 const ul = document.querySelector('ul');
 
 li.addEventListener('mouseover', () => {
     li.style.listStyleType = 'square';
 })
+
 the ul would also be targeted because of event bubbling
 
 Example two
@@ -24,8 +26,6 @@ button.addEventListener('click', () => {
 'I clicked the button' will be logged to the console
 
  */
-
-
 
 
 const toggleList = document.getElementById('toggleList');
