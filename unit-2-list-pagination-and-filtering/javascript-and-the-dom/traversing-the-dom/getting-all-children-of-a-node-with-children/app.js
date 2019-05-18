@@ -1,26 +1,10 @@
 /*
+ -- Getting all Children of a Node with Children --
 
--- Using previousElementSibling and insertBefore
+ Syntax
+ var elList = elementNodeReference.children;
 
-NonDocumentTypeChildNode.previousElementSibling()
-Syntax
-prevNode = elementNodeReference.previousElementSibling;
-
-- previousElementSibling is preferred to previousSibling because unlike previousSibling, previousElementSibling
-always returns a DOM element
-
-Node.insertBefore()
-Syntax
-var insertedNode = parentNode.insertBefore(newNode, referenceNode);
-
-- for insertBefore you need three nodes; the parent, the sibling, and the reference to the node you want to insert
-
-Practice: the constant div contains a reference to a DOM element. Select its parent node and store that in the constant
-parentOfDiv
-const div = document.querySelector('div');
-const parentOfDiv = div.parentNode;
-
-*/
+ */
 
 const toggleList = document.getElementById('toggleList');
 const listDiv = document.querySelector('.list');
@@ -30,16 +14,34 @@ const descriptionButton = document.querySelector('button.description');
 const listUl = listDiv.querySelector('ul');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
+const lis = listUl.children;
+
+// create buttons in the DOM
+function attachListItemButtons (li) {
+  let up = document.createElement('button');
+    up.className = 'up';
+    up.textContent = 'Up';
+    li.appendChild(up);
+
+  let down = document.createElement('button');
+    down.className = 'down';
+    down.textContent = 'Down';
+    li.appendChild(down);
+
+  let remove = document.createElement('button');
+    remove.className = 'remove';
+    remove.textContent = 'Remove';
+    li.appendChild(remove);
+}
+
 
 listUl.addEventListener('click', (event) => {
   if (event.target.tagName == 'BUTTON') {
-    // target the button with class of remove
     if (event.target.className == 'remove') {
       let li = event.target.parentNode;
       let ul = li.parentNode;
       ul.removeChild(li);
     }
-    // target the button with class of up
     if (event.target.className == 'up') {
       let li = event.target.parentNode;
       let prevLi = li.previousElementSibling;
@@ -48,8 +50,21 @@ listUl.addEventListener('click', (event) => {
         ul.insertBefore(li, prevLi);
       }
     }
+    if (event.target.className == 'down') {
+      let li = event.target.parentNode;
+      let nextLi = li.nextElementSibling;
+      let ul = li.parentNode;
+      if (nextLi) {
+        ul.insertBefore(nextLi, li);
+      }
+    }
   }
 });
+
+// loop through the buttons
+for (let i = 0; i < lis.length; i += 1) {
+  attachListItemButtons(lis[i]);
+}
 
 toggleList.addEventListener('click', () => {
   if (listDiv.style.display == 'none') {
@@ -70,6 +85,8 @@ addItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
   let li = document.createElement('li');
   li.textContent = addItemInput.value;
+  // insert the buttons into the DOM
+  attachListItemButtons(li);
   ul.appendChild(li);
   addItemInput.value = '';
 });

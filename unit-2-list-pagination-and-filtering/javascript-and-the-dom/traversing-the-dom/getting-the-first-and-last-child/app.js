@@ -1,26 +1,15 @@
 /*
 
--- Using previousElementSibling and insertBefore
+-- Getting the First and Last Child --
 
-NonDocumentTypeChildNode.previousElementSibling()
 Syntax
-prevNode = elementNodeReference.previousElementSibling;
-
-- previousElementSibling is preferred to previousSibling because unlike previousSibling, previousElementSibling
-always returns a DOM element
-
-Node.insertBefore()
-Syntax
-var insertedNode = parentNode.insertBefore(newNode, referenceNode);
-
-- for insertBefore you need three nodes; the parent, the sibling, and the reference to the node you want to insert
-
-Practice: the constant div contains a reference to a DOM element. Select its parent node and store that in the constant
-parentOfDiv
-const div = document.querySelector('div');
-const parentOfDiv = div.parentNode;
-
-*/
+ParentNode.firstElementChild
+  ParentNode.firstChild
+  - older syntax, avoid because doesn't always return DOM element
+ParentNode.lastElementChild
+  ParentNode.lastChild
+    - older syntax, avoid because doesn't always return DOM element
+ */
 
 const toggleList = document.getElementById('toggleList');
 const listDiv = document.querySelector('.list');
@@ -30,22 +19,60 @@ const descriptionButton = document.querySelector('button.description');
 const listUl = listDiv.querySelector('ul');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
+const lis = listUl.children;
+// traverses from the ul element to the first child
+// ul element is stored in the const listUl
+const firstListItem = listUl.firstElementChild;
+// traverses from the ul element to the last child
+const lastListItem = listUl.lastElementChild;
+
+// changes the first list item background color
+firstListItem.style.backgroundColor = 'lightskyblue';
+// changes the last list item background color
+lastListItem.style.backgroundColor = 'lightsteelblue';
+
+function attachListItemButtons(li) {
+  let up = document.createElement('button');
+  up.className = 'up';
+  up.textContent = 'Up';
+  li.appendChild(up);
+
+  let down = document.createElement('button');
+  down.className = 'down';
+  down.textContent = 'Down';
+  li.appendChild(down);
+
+  let remove = document.createElement('button');
+  remove.className = 'remove';
+  remove.textContent = 'Remove';
+  li.appendChild(remove);
+}
+
+for (let i = 0; i < lis.length; i += 1) {
+  attachListItemButtons(lis[i]);
+}
 
 listUl.addEventListener('click', (event) => {
   if (event.target.tagName == 'BUTTON') {
-    // target the button with class of remove
     if (event.target.className == 'remove') {
       let li = event.target.parentNode;
       let ul = li.parentNode;
       ul.removeChild(li);
     }
-    // target the button with class of up
     if (event.target.className == 'up') {
       let li = event.target.parentNode;
       let prevLi = li.previousElementSibling;
       let ul = li.parentNode;
       if (prevLi) {
         ul.insertBefore(li, prevLi);
+      }
+    }
+    if (event.target.className == 'down') {
+      let li = event.target.parentNode;
+      let nextLi = li.nextElementSibling;
+      let ul = li.parentNode;
+      if (nextLi) {
+        ul.insertBefore(nextLi, li);
       }
     }
   }
@@ -70,6 +97,7 @@ addItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
   let li = document.createElement('li');
   li.textContent = addItemInput.value;
+  attachListItemButtons(li);
   ul.appendChild(li);
   addItemInput.value = '';
 });

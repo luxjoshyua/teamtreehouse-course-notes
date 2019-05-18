@@ -29,13 +29,15 @@ listUl.addEventListener('click', (event) => {
     }
 
     // DOWN button
+    /* Daniel's solution matches exactly teacher's solution */
     if (event.target.className == 'down') {
-      // find the parentNode (ul)
+      // find the list item
       let li = event.target.parentNode;
-
       let nextLi = li.nextElementSibling;
+      // find the list item parentNode
       let ul = li.parentNode;
       if (nextLi) {
+        // put the nextLi before the target list item
         ul.insertBefore(nextLi, li)
       }
     }

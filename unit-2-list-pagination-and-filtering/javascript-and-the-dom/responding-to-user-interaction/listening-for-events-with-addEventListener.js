@@ -14,7 +14,7 @@ onkeydown = the user pushes a keyboard key
 onload = the browser has finished loading the page
 */
 
-
+  
 
 // type and callBack function
 // select all list items
