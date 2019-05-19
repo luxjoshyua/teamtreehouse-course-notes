@@ -16,7 +16,6 @@ ul.removeChild(li);
 
 */
 
-
 /*
 -- Relevant HTML --
 <body>
@@ -52,7 +51,7 @@ listUl.addEventListener('click', (event) => {
   if (event.target.tagName == 'BUTTON') {
     // can keep pairing parentNode to parentNode, going up the tree
     let li = event.target.parentNode;
-    let ul = li. parentNode;
+    let ul = li.parentNode;
     ul.removeChild(li); 
   }
 });
@@ -79,14 +78,3 @@ addItemButton.addEventListener('click', () => {
   ul.appendChild(li);
   addItemInput.value = '';
 });
-  
-  
-  
-  
-  
-
-
-
-
-
-
