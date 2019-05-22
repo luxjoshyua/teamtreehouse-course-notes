@@ -1,43 +1,46 @@
-// 1: Set the text of the <h1> element
-document.querySelector('h1').textContent = 'h1 text content goes here!';
+/* -- Practice Manipulating the DOM --
 
+.appendChild
+.textContent = 
+.innerHTML = 
+.createElement('ul'); 
+
+*/
+
+// 1: Set the text of the <h1> element
+const h1 = document.querySelector('h1').textContent = 'h1 text is set here'; 
 // 2: Set the color of the <h1> to a different color
-const h1 = document.querySelector('h1');
-h1.style.color = "pink";
+h1.style.color = 'purple'; 
 
 // 3: Set the content of the '.desc' paragraph
 // The content should include at least one HTML tag
-document.querySelector('.desc').innerHTML = 'Text goes here!'; 
+const para = document.getElementsByClassName('desc').innerHTML = '<p>Something something</p>'; 
 
 // 4: Set the class of the <ul> to 'list'
-const list = document.querySelector('ul');
-list.className = 'list';  
+const ul = document.getElementsByTagName('ul');
+ul.className = 'list'; 
 
 // 5: Create a new list item and add it to the <ul>
-const item = document.createElement('li');
-item.innerHTML = "<input>Eat ice cream";
-list.appendChild(item); 
+const newLI = document.createElement('li');
+ul.appendChild(newLI); 
 
 // 6: Change all <input> elements from text fields to checkboxes
-const input = document.getElementsByTagName('input');
-for (let i = 0; i < input.length; i += 1) {
-  input[i].type = 'checkbox'; 
-}
-
+ const input = document.getElementsByTagName('input'); 
+ for (let i = 0; i < input.length; i++) {
+    input[i].type = 'checkbox'; 
+ }
+ 
 // 7: Create a <button> element, and set its text to 'Delete'
-// Add the <button> inside the '.extra' <div>
-// const btn = document.createElement('button'); 
-// btn.innerHTML = 'Delete me';
-// document.querySelector('.extra').appendChild(btn); 
+// Add the button inside the .extra div
+const btn = document.createElement('button');
+btn.innerHTML = 'Delete';
 
-const deleteButton = document.createElement('button');
-deleteButton.textContent = 'Delete';
-
-const extra = document.querySelector('.extra');
-extra.appendChild(deleteButton); 
+const extra = document.getElementsByClassName('extra');
+extra.appendChild(btn); 
 
 // 8: Remove the '.extra' <div> element from the DOM when a user clicks the 'Delete' button
-const container = document.querySelector('.container');
-deleteButton.addEventListener('click', () => {
+
+const container = document.getElementsByClassName('container');
+btn.addEventListener('click', () => {
   container.removeChild(extra); 
 })
