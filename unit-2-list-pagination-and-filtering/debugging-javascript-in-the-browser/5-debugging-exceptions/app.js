@@ -91,7 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const span = li.firstElementChild;
           const input = document.createElement('input');
           input.type = 'text';
-          input.textContent = span.textContent;
+          // change from input.textContent to input.value
+          input.value = span.textContent;
           li.insertBefore(input, span);
           li.removeChild(span);
           button.textContent = 'save';   

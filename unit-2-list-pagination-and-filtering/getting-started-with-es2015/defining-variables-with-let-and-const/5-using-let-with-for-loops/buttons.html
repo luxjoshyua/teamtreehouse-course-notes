@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>buttons - let and Const</title>
+  </head>
+  <body>
+    <h1>Buttons</h1>
+    <button>Button 0</button>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <button>Button 4</button>
+    <button>Button 5</button>
+    <button>Button 6</button>
+    <button>Button 7</button>
+    <button>Button 8</button>
+    <button>Button 9</button>
+    <script>
+      const buttons = document.getElementsByTagName("button");
+      // everytime the loop runs, i is incremented by 1
+      // using let instead of var means the i will be distinct
+      // for each button as it goes through the loop
+      for ( let i = 0; i < buttons.length; i++) {
+        // each button needs its own local copy of i
+          const button = buttons[i];
+          button.addEventListener("click", function() {
+              alert("Button " + i + " Pressed");
+          });
+      }
+    </script>
+  </body>
+</html>
