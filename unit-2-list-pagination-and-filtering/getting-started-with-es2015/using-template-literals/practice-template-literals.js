@@ -20,7 +20,6 @@ const planets = [
     facts: 'Mars has the largest dust storms in the solar system. They can last for months and cover the entire planet. On Mars the Sun appears about half the size as it does on Earth.'
   }
 ];
-
 function createPlanetHTML(planet) {
   return `
       <div class="card">

@@ -1,3 +1,14 @@
+// syntax
+const function = (parameter/s) => {
+
+}; 
+
+function divide1(a, b) {
+    return a / b; 
+}
+// same as:
+const divide = (a, b) => a / b; 
+
 // Task one
 function addToTen(num) {
     return 10 + num;
@@ -5,6 +16,7 @@ function addToTen(num) {
 
 // rewritten in arrow syntax
 // because we're passing in only one parameter, don't need to enclose in parentheses()
+// when passing in 1 parameter, don't need enclosing () parentheses
 const addToTen = num => 10 + num; 
 
 // Task two
@@ -14,7 +26,8 @@ function divideUs(num1, num2) {
 
 // rewritten in arrow synax
 // this function receives two parameters, so need to be enclosed in parantheses
-const divideUs = (num1, num2) => num1/num2; 
+const divideUs = (num1, num2) => num1 / num2; 
+
 
 // Task three
 function printMyName() {
@@ -28,17 +41,18 @@ function printMyName() {
 const printMyName = () => {
     let myName = 'Ashley';
     console.log(myName); 
-}
+};
 
 
 // Refactoring Practice
-
 // Task one
 const multiplyByTen = (num) => {
 	return 10 * num;
 }
 
 // refactored as
+// doesn't need return
+// only passing in one parameter, doesn't need parantheses
 const multiplyByTen = num => 10 * num; 
 
 // Task two
@@ -55,7 +69,10 @@ const addUs = (num1, num2) => {
 }
 
 // refactored as
-const addUs = (num1, num2) => console.log(num1 + num2);
+const addUs = (num1, num2) => console.log(num1 + num2); 
+
+
+
 
 
 // Debug Challenge - check what's wrong with each function
@@ -64,13 +81,14 @@ const addUs = (num1, num2) => console.log(num1 + num2);
 const multiplyUs = num1, num2 => console.log(num1 * num2); 
 
 // rewritten as
+// needs parantheses as there are two parameters
 const multiplyUs = (num1, num2) => console.log(num1 * num2); 
 
 // Task two
 const subtractFromTen = num => 
-	const diff = 10 - num; 
+    const diff = 10 - num; 
+    // without parentheses, console.log(diff) is in the global scope, so won't work
 	console.log(diff);
-
 
 // Rewritten as
 const subtractFromTen = num => {
@@ -84,11 +102,11 @@ const printDate = date = function() {
 }
 
 // Rewritten as
-const printDate = date => {
-    console.log(date); 
-}
+// arrow functions don't use the function keyword
+// because only one parameter, doesn't need () around date parameter
+const printDate = date => console.log(date); 
 
+// Function calls
 multiplyUs(2,6);
 subtractFromTen(4);
 printDate('1/16/18');
-

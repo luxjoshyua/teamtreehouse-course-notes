@@ -8,54 +8,12 @@
 
 */
 
-// changed from const because the number of teachers changes, meaning const wouldn't work because you can't change the value of const variables
 
 let teachers = [{
 	name: 'Ashley',
 	topicArea: 'Javascript'
 }];
 
-// const means the variables can't be reassigned
-const courses = [
-	'Introducing JavaScript',
-	'JavaScript Basics',
-	'JavaScript Loops, Arrays and Objects',
-	'Getting Started with ES2015',
-	'JavaScript and the DOM',
-	'DOM Scripting By Example'
-	];
-
-var i = courses.length;
-
-function addNewTeachers(newTeachers) {
-	// TODO: write a function that adds new teachers to the teachers array 
-	// use .push method  
-	// access first item
-	// teachers.push(newTeachers.name);
-	// access second item
-	// teachers.push(newTeachers.name);
-	teachers.push(newTeachers[0], newTeachers[1]); 
-
-	// can also write with the spread operator
-	// spread operator lets you specify an unknown number of array properties
-	teachers.push(...newTeachers); 
-}
-
-console.log(teachers);
-
-function printTreehouseSummary() {
-	// TODO: fix this function so that it prints the correct number of courses and teachers 
-	for (let i = 0; i < teachers.length; i++) {
-		console.log(`${teachers[i].name} teaches ${teachers[i].topicArea}`);
-	}
-
-	console.log(`Treehouse has ${i} JavaScript courses, and ${teachers.length} Javascript teachers`);
-	// also works
-}
-
-// need the log to say 'Treehouse has 6 JavaScript courses, and 3 JavaScript teachers' 
-
-// added these to the function addNewTeachers using .push() method
 let newTeachers = [{
 		name: 'James',
 		topicArea: 'Javascript'
@@ -66,6 +24,32 @@ let newTeachers = [{
 	}
 ];
 
-// let and const variables need to be declared at the top of their scope
+const courses = ['Introducing JavaScript',
+	'JavaScript Basics',
+	'JavaScript Loops, Arrays and Objects',
+	'Getting Started with ES2015',
+	'JavaScript and the DOM',
+	'DOM Scripting By Example'
+];
+
+var i = courses.length;
+
+function addNewTeachers(newTeachers) {
+	// TODO: write a function that adds new teachers to the teachers array 
+	// teachers.push(newTeachers[0]);
+	// teachers.push(newTeachers[1]);
+
+	// or
+	teachers.push(...newTeachers);
+}
+
+function printTreehouseSummary() {
+	// TODO: fix this function so that it prints the correct number of courses and teachers 
+	for (let i = 0; i < teachers.length; i++) {
+		console.log(`${teachers[i].name} teaches ${teachers[i].topicArea}`);
+	}
+	console.log(`Treehouse has ${i} JavaScript courses, and ${teachers.length} Javascript teachers`);
+}
+
 addNewTeachers(newTeachers);
 printTreehouseSummary();
