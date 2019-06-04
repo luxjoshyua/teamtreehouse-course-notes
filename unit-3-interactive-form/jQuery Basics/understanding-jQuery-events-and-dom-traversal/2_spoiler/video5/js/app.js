@@ -1,7 +1,12 @@
-// Create the "Reveal Spoiler" button
+// create reveal spoiler button
+// use $ when declaring a function that contains a jQuery element
 const $button = $('<button>Reveal Spoiler</button>');
-//Append to web page
-$('.spoiler').append($button);
+// append to web page .append()
+// pass the element we want to append using $button
+$('.spoiler').append($button); 
+// .prepend() inserts before the element 
+// $('.spoiler').prepend($button); 
+
 
 //Hide the spoiler text
 $('.spoiler span').hide();

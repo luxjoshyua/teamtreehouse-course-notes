@@ -5,6 +5,9 @@ $('#flashMessage').slideDown(1000);
 $('#flashMessage').delay(3000);
 $('#flashMessage').slideUp();
 
+$('#element').delay(2000).slideDown(); 
+$('#element').delay(2000).slideUp(); 
+
 $('#element').text();
 
 // change html within the element
@@ -16,7 +19,6 @@ const content = "This is my <strong>first</strong> post!";
 
 // returns the contents of $('.product-description') as plain text.
 $('.product-description').text(); 
-
 
 $('#flashMessage').hide();
 
