@@ -1,7 +1,8 @@
 const $odd = $('a:odd');
 const $secureLinks = $('a[href^="https://"]');
 const $pdfs = $('a[href$=".pdf"]');
-const $pdfCheckbox = $('<label><input type="checkbox"> Allow PDF downloads</label>');
+// unobtrusive code, deleted from HTML, inserted here
+const $pdfCheckbox = $('<label><input type="checkbox">Allow PDF downloads</label>'); 
 
 $secureLinks.attr('target', '_blank');
 $pdfs.attr('download', true);
@@ -21,5 +22,3 @@ $pdfs.on('click', function(event){
 });
 
 $('#links').append($pdfCheckbox);
-
-
