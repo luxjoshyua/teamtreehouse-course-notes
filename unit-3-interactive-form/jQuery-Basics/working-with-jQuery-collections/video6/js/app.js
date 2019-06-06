@@ -12,7 +12,7 @@ $pdfs.addClass('pdf');
 $pdfs.on('click', function(event){
   //check if checkbox has been checked 
   //if zero checkboxes are checked 
-  if ($(':checked').length === 0){
+  if ($(':checked').length === 0) {
     //prevent download of document 
     event.preventDefault();
     //alert the user 
