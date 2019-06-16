@@ -1,0 +1,3 @@
+[^] = negated character set
+[^@] = match any character except @
+

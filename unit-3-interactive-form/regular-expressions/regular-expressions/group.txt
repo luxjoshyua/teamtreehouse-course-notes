@@ -1,0 +1,81 @@
+(sub){2} = matches "subsub"
+
+(sub)?pat = matches "pat" and "subpat"
+
+Example One
+regex = (toy|sail|tug) boat
+matches
+    toy boat
+    sail boat
+    tug boat
+
+Example Two
+regex = google\.(com|net|org)
+
+using \ escapes the stops normal behaviour in regex, which is to match any character, instead the parser interprets it as a literal character
+
+This is useful to avoid bugs, as . would match google$com or google-com
+
+matches = 
+    google.com
+    google.net
+    google.org
+
+1) 
+regex = 
+
+Match: 
+    img_01.jpg
+    img_02.png
+    img_03.gif
+    img_04.png
+    img_05.gif
+    img_06.jpg
+
+Exclude:
+   mov_01.avi
+
+2) 
+regex = 
+
+Match: 
+    projector
+    protractor
+    proctor
+
+Exclude:
+   prospector
+
+
+3) 
+regex = 
+
+Match: 
+    img_sm_01.jpg
+    img_01.jpg
+    img_sm_02.jpg
+    img_02.jpg
+    img_sm_03.jpg
+    img_03.jpg
+    img_sm_04.png
+    img_04.png
+
+Exclude:
+   img.gif
+
+4)
+regex = 
+
+Match:
+    www.github.com
+    github.com
+    www.teamtreehouse.com
+    teamtreehouse.com
+    api.github.com
+
+Exclude:
+    jsfiddle.net
+    www.jsfiddle.net
+
+
+

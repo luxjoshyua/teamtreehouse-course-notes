@@ -1,0 +1,6 @@
+== Matching Character Ranges ==
+[A-Za-z]
+- find all upper and lowercase
+[1-9] 
+- find all numbers in that range
+

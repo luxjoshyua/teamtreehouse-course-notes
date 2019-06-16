@@ -1,0 +1,52 @@
+Regex, or regular expressions, are a sequence of characters that define a search pattern.
+
+They are often used to validate correct inputs on the web e.g. when searching for a word on a page, or entering a form
+
+The ? is used to make the character to the left optional 
+    - e.g. toyboats? would find anything on a page <toyboat> or <toyboats>
+    - e.g. toyboa?ts would find toybot, toyboats
+    - e.g. toy ?boats would find even if the user had made two words toy boats    
+
+    - ? matches 0 or 1 character, aka the character is optional 
+        e.g. colou?r will match color or colour
+
+The [] is used to say either character is accepted
+    - e.g. [Ttj]oyboats would find both upper and lowercase spellings and the word <joyboats>
+
+[TTj]oy[ -]?[Bb]oats?
+
+Useful site for testing regex - http://regexpal.com.s3-website-us-east-1.amazonaws.com/
+
+Example One
+regex = lady ?bugs?
+matches = 
+    ladybug
+    ladybugs
+    lady bugs
+
+Example Two
+regex = la[dz]y ?[bl]ugs?
+matches = 
+    ladybug
+    lady bugs
+    lazy bug
+    lazy lug
+
+Example Three
+regex = [lh]a[dz]y ?[bls]ugs?
+matches = 
+    ladybug
+    lazy lug
+    lazy slug - doesn't work
+    hazy slug - doesn't work
+
+Example Four
+regex = 
+matches = 
+    ladybug
+    fading rug!
+
+
+
+
+

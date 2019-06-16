@@ -1,0 +1,69 @@
+^ beginning of a string
+    ^ requires the regular expression parser to begin matching at the beginning of the input string
+
+$ end of a string
+
+^(www\.)?google\.(com|net)$
+
+matches
+google.com
+google.net
+
+www.google.com
+
+excludes
+google.org
+wwwgoogle.com
+www.google.commmm
+
+
+1) 
+regex = 
+
+Match: 
+    tart
+
+Exclude:
+    start
+    tartan
+
+2) 
+regex = 
+
+Match: 
+    img_01.jpg
+    img_02.png
+    img_03.gif
+    img_04.png
+    img_05.gif
+    img_06.jpg
+
+Exclude:
+    6_img_07.gif
+    mov_01.avi
+
+3) 
+regex = 
+
+Match: 
+    projector
+    protractor
+    projected
+
+Exclude:
+    proctor
+    my projector
+    projecting
+    projectorlight
+
+4) 
+regex = 
+
+Match:
+    3456
+    34567
+
+Exclude:
+    23456
+    345678
+

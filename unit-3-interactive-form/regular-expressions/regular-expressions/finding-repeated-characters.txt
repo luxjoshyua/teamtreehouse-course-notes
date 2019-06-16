@@ -1,0 +1,99 @@
+* zero or more
++ one or more
+
+\w* would say I want to match zero or more number and/or word characters
+\d+ would say I want to match one or more number characters
+
+e.g. 
+regex = toy\w*
+    \w any number or digit range (so b or c will work)
+    * zero or more following so oat or ar will both be matched
+matches = 
+    toy
+    toyboat
+    toycar
+
+Repetitions
+{3} three
+{3, } three or more
+{3,5} between three and five
+
+regex
+
+\d{3}-\d{2}-\d{4}
+\d{3} - number range, repetition of three
+\d{3} - number range, repetition of two
+\d{3} - number range, repetition of four
+
+matches below
+    000-35-6548
+    000-67-6587
+
+regex
+\w{5,}
+  \w any letter or number range
+  {5,} 5 or more characters
+
+matches
+E4763GHC
+7896TOB3P4JFINE87733
+L000 - wouldn't match this, as it's 4 characters
+
+
+Practice One
+regex = \d \w+
+
+Match
+    8 pieces
+    7 piece
+    6 pieces
+    5 pieces
+    4 pieces
+
+Exclude
+    A piece
+    A 12345
+
+Practice Two
+regex = 
+
+Match
+    8 pieces
+    7 piece
+    6 pieces
+    5 pieces
+    4 pieces
+    2 pie slices
+
+Exclude
+    A piece
+    A 12345
+
+Practice Three
+regex = 
+
+Match
+    1234
+    5678
+    84753
+    78930
+
+Exclude
+    abcde
+    abcde
+    power
+    bat!
+
+Practice Four
+regex = 
+
+Match
+    123abc
+    333cats
+    821_Plants
+    769___
+
+
+Exclude
+    454!_Minutes
+    12statues

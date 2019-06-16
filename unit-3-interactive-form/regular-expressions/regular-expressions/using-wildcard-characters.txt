@@ -1,0 +1,87 @@
+== Using Wildcard Characters ==
+- are shortcuts
+
+[0-9] = \d 
+- will find the same range
+
+\D = will find not digits
+
+[A-Za-z0-0_] = \w 
+- will find the same range
+- finds any number, digit or character range
+
+\W = will find not words
+
+[ \t\r\n\f] = \s 
+- will find the same range
+- used to match whitepaces e.g. normal spaces, tabs, a few kinds of line return characters
+
+\S = will find not spaces
+
+
+Any character = . 
+- will find the same range
+
+
+Practice
+
+1) 
+regex = \d\d\d\d?\d?
+
+Match: 
+    7849
+    3472
+    8901
+    70502
+    23470
+    90496
+
+Exclude:
+    abcde
+    ABCDE
+
+2) 
+
+regex = [\d] [ab]
+
+Match: 
+    1 a
+    2 a
+    3 a
+    4 a
+    5 a
+    8 a
+    9 b
+
+Exclude:
+    4 c
+    4 E
+
+3) 
+regex = 
+
+Match: 
+    8345 Gable
+    7238 Gable
+    2349 Table
+    8475 Cable
+    0994 Fable
+    1047 Zable
+
+Exclude: 
+    5633 gable
+    jklh 3able
+
+4) 
+regex = 
+
+Match: 
+    bat
+    cat
+    data
+    eat
+    fast
+    12_6
+
+Exclude:
+    $%#$@

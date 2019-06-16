@@ -1,0 +1,46 @@
+| Alternation (or)
+
+Practice
+
+1) 
+regex = 
+
+Match: 
+    grizzlybear
+    pandabear
+
+Exclude:
+    koalabear
+    bear
+
+2) 
+regex = 
+
+Match:
+    firestation
+    firehouse
+
+Exclude:
+    firewalker
+    fire
+
+3)
+regex = 
+
+Match:
+    farmhouse
+    bighouse
+    firehouse
+
+Exclude:
+    house
+
+4)
+regex = 
+
+Match:
+    projector
+    protractor
+
+Exclude:
+    proctor
