@@ -1,0 +1,26 @@
+Flags
+- let you change what a regex matches in some way
+
+i = Case-insensitive, makes the regex case insensitive
+
+g = Global, makes the regex match globally
+
+m = Multiline
+
+/regex/igm - add after last slash of a regex literal, can be in any order
+
+'LION'.replace(/lion/i, 'mouse'); // replaces mouse with lion, because regex says find any string with lion, lower or uppercase
+
+'LION'.replace(/[a-z]+/i, 'mouse'); // does the same as above
+
+
+'She ate watermelon at the waterpark.'.replace(/water/, ''); // would replace the first instance of water, not the second
+
+'She ate watermelon at the waterpark.'.replace(/water/g, ''); // would replace all instances of water, as we've used the g flag
+
+const treat = `cheese
+                cheese
+                cheese`;
+treat.replace(/^cheese$/, 'fruit'); // wouldn't match any, as it's multiline
+treat.replace(/^cheese$/m, 'fruit'); // would match the first one
+treat.replace(/^cheese$/mg, 'fruit'); // would match all of them, as it's multiline and global

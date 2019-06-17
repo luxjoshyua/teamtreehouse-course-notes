@@ -3,6 +3,10 @@
 
 $ end of a string
 
+in a regex, using a caret(^) at the beginning and a dollar sign($) at the end eliminates partial matches 
+
+using a ? after a character makes it's presence optional e.g. /[a-zA-Z0-9]{3}@?/  says the @ is optional
+
 ^(www\.)?google\.(com|net)$
 
 matches
@@ -15,7 +19,6 @@ excludes
 google.org
 wwwgoogle.com
 www.google.commmm
-
 
 1) 
 regex = 

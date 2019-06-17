@@ -1,0 +1,28 @@
+test()
+- executes a search for a match between a regular expression and a specified string. Returns true or false. 
+- lets you check if the string matches the pattern defined in a regex
+
+
+regex.test(testString); 
+- method returns true or false
+
+const regex = \^corn\ (matches corn if it's at the beginning of a string)
+regex.test('corncob') // evaluates to true, because corn is at the beginning of the word corncob
+regex.test('popcorn') // evaluates to false, because corn isn't at the beginning of the word popcorn
+
+
+replace()
+
+string.replace(regex, replacementString)
+=> returns a newString
+
+const string1 = 'corndog'
+string1.replace(regex, 'hot');
+
+const string2 = 'popcorn'
+string2.replace(regex, 'tart')
+
+
+
+match()
+- method retrieves the matches when matching a string against a regular expression

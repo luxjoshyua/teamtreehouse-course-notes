@@ -17,6 +17,10 @@ The [] is used to say either character is accepted
 
 Useful site for testing regex - http://regexpal.com.s3-website-us-east-1.amazonaws.com/
 
+Matches hexdecimal codes   
+var hexRegEx = /^#[0-9a-fA-F]{6}$/;
+matches #FF4569 and #578E9A
+
 Example One
 regex = lady ?bugs?
 matches = 
