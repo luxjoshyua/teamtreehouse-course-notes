@@ -1,0 +1,43 @@
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+
+  .main-header,
+  .main-nav,
+  .row 
+  /* have to make the .main-nav li children flex too,
+  so can't just have .main-header display flex */
+  {
+    display: flex; 
+  }
+
+  .main-header {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .col {
+    /* now each column takes up an equal amount of space on the row */
+    flex: 1; 
+  }
+	
+
+}
+
+@media (min-width: 1025px) {
+
+  .main-header {
+    flex-direction: row; 
+    justify-content: space-between; 
+  }
+
+  .primary {
+    /* make the primary column take twice the amount of available space
+    as the secondary column */
+    flex: 2;
+  }
+
+}

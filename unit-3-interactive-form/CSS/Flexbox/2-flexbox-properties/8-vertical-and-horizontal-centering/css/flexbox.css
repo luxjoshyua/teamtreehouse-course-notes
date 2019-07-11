@@ -1,0 +1,41 @@
+
+/* ================================= 
+  Flexbox
+==================================== */
+
+.container {
+	display: flex;
+	min-height: 50vh;
+	/* centers the blue box perfectly center */
+	/* justify-content: center; */
+	/* align-items: center; */
+}
+
+.item {
+	/* align center on the cross axis */
+	/* align-self: center; */
+
+	margin: auto; 
+}
+
+/* Three ways to center-align elements using flexbox */
+
+/* Option one */
+.container {
+	justify-content: center;
+	align-items: center;
+}
+
+/* Option two */
+.container {
+	justify-content: center;
+}
+
+.item {
+	align-self: center;
+}
+
+/* Option three */
+.item {
+	margin: auto; 
+}

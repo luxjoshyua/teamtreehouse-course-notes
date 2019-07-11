@@ -1,0 +1,59 @@
+/* ================================= 
+  Flexbox
+==================================== */
+.container {
+  display: flex;
+  /* reverses the main axis direction */
+  /* flex-direction: row-reverse; */
+  /* items are layed out vertically, main axis runs bottom to top */
+  /* flex-direction: column-reverse; */
+  /* flex items will wrap onto a new line in the direction of the main axis
+  if there isn't space on the one line */
+  flex-wrap: wrap;
+  /* aligns the items to the end of the flex line */
+  /* justify-content: flex-end;  */
+  /*  displays the flex items with equal spacing between them */
+  /* justify-content: space-between; */
+  justify-content: space-around; 
+}
+
+/* left justifies item-1, right-justifies the other items */
+/* .item-1 {
+  margin-right: auto;
+} */
+
+/* .item-6 {
+  order: -1; 
+} */
+
+/* .item-1 {
+  order: 1; 
+} */
+
+/* sends item-2 to the last position on the row */
+/* .item-2 {
+  order: 2; 
+} */
+
+/* places item five second in the flex line */
+/* .item-5 {
+  order: -1;
+} */
+
+/* places item 1 first in the flex line */
+/* .item-1 {
+  order: -2;
+} */
+
+/* makes each item grow to take up the full space of the flex container row */
+/* flex grow only works on flex items; not on the flex container */
+.item {
+  flex-grow: 1;
+}
+
+/* gives item 3 3 times the available space */
+.item-3 {
+  flex-grow: 3; 
+}
+
+
