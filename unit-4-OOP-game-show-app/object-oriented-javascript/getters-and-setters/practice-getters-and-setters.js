@@ -26,32 +26,42 @@ const rect3 = new Rectangle(15, 20);
 the second element holds the value of the area property of rect2, and the third element holds the value of the area property of rect3
 */
 
-areas = [rect1.area, rect2.area, rect3.area]; 
+areas = [rect1.area, rect2.area, rect3.area];
 
 
 
 // Challenge Two
 
 /* Step One:
-Create a setter method called radius inside the Circle class.
-This method should store the value of the radius using a backing property, _radius. 
-It should also set two additional properties on the Circle class, area, and circumference. 
+
 These do not need to be backing properties.
-For the purposes of this challenge, use 3.14 to represent π. The formula for circumference is circumference = 2*π*radius, the formula for area is area = π*r^2.
+For the purposes of this challenge, use 3.14 to represent π. 
+The formula for circumference is circumference = 2*π*radius, the formula for area is area = π*r^2.
 
 */
 
 class Circle {
 
-    set radius(_radius) {
+    // 1. Create a setter method called radius inside the Circle class.
+    set radius(radius) {
+        // 2. This method should store the value of the radius using a backing property, _radius. 
         this._radius = radius;
 
-        this.Circle.area = π * Math.pow(r^, 2); 
+        // 3. It should also set two additional properties on the Circle class: area, and circumference. 
 
+        // the formula for circumference is circumference = 2*π*radius
+        this.circumference = 2 * 3.14 * this._radius;
 
+        // the forumula for area is π * r^2 (r represents radius)
+        this.area = 3.14 * Math.pow(radius, 2);
     }
 
 
+    // Step Two: create a getter method called radius that returns the value of the backing property _radius.
+    get radius() {
+        return this._radius; 
+    }
+    
 }
 
-const circ = new Circle(); 
+const circ = new Circle();
