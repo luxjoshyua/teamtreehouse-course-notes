@@ -15,7 +15,6 @@ console.log(capitalizedFruits);
 
 
 // Example Two
-
 const prices = [6.75, 3.10, 4.00, 8.12]; // sums to 21.97
 // create a varaiable to hold the total summed price
 let totalPrice = 0; 
@@ -26,15 +25,14 @@ for (let i = 0; i < prices.length; i++ ) {
 }
 
 // forEach() method
+const prices = [6.75, 3.10, 4.00, 8.12]; // sums to 21.97
+let total = 0;
 
-// const prices = [6.75, 3.10, 4.00, 8.12]; // sums to 21.97
-// let total = 0;
+prices.forEach(price => {
+    total += price;
+}); 
 
-// prices.forEach(price => {
-//     total += price;
-// }); 
-
-// console.log(total); 
+console.log(total); 
 
 
 // Example Three
@@ -58,7 +56,6 @@ console.log(sNames);
 
 // Example Four
 // Task: output each number * 10; 
-
 const numbers = [1,2,3,4,5,6,7,8,9,10];
 let times10 = [];
 
@@ -71,6 +68,4 @@ numbers.forEach(number => {
 
 // times10 should be: [10,20,30,40,50,60,70,80,90,100]
 console.log(times10); 
-
-
 
