@@ -1,0 +1,21 @@
+/* ===================================== 
+   Grid Layout
+======================================== */
+/* setup the container for the grid */
+.grid {
+  max-width: 800px;
+  /* turns on grid in the browser */
+  display: grid; 
+  /* set the column grid tracks */
+  grid-template-columns: 200px auto 200px; /* sets up three columns, two 200px wide, one that will take up the remaining available space (so 400px) */
+  /* set the row grid tracks */
+  grid-template-rows: 100px; 
+  /* creates 20px gutter between columns */
+  /* grid-column-gap: 20px;  */
+  /* creates 15px gutter between rows */
+  /* grid-row-gap: 15px;  */
+  /* sets gap for column and row */
+  grid-gap: 15px 20px; 
+
+}
+
