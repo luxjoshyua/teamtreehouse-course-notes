@@ -17,7 +17,6 @@ class Player {
     this.tokens = this.createTokens(21);
   }
 
-
   /* this documentation follows the correct structure for documenting a method in a class - https://devdocs.io/jsdoc/
     1. quick description
     2. describes arguments received and what they do
@@ -45,5 +44,24 @@ class Player {
     // when the loop is finished and all the tokens have been created, return the array
     return tokens; 
   }
+
+  /**
+   * this method returns an array containing all of a Player's Token objects whose dropped properties are equal to false.
+   */
+  get unusedTokens() {
+    // any token object whose dropped property does not equal true
+    return this.tokens.filter(token => !token.dropped)
+  }
+
+  /**
+   * gets the active token by returning the first token in the array of unused tokens
+   * @return {Object} First token object in the array of unused tokens.
+   */
+
+  get activeToken() {
+    // get the first token obect in the array and return it
+    return this.unusedTokens[0];
+  }
+    
 
 }
