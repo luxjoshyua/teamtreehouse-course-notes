@@ -12,6 +12,21 @@ class Token {
     this.columnLocation = 0;
   }
 
+  // getter method
+  get htmlToken() {
+    return document.getElementById(this.id);
+  }
+
+  /** 
+   * Gets left offset of html element.
+   * @return  {number}   Left offset of token object's htmlToken.
+   */
+  get offsetLeft() {
+    // this method returns the value of the offsetLeft property of the htmlToken
+    // htmlToken goes before offsetLeft because you're finding the value of the token
+    return this.htmlToken.offsetLeft;
+  }
+
 
   /**
    * Draws new HTML token
@@ -26,22 +41,6 @@ class Token {
     // set the class attributethi
     token.setAttribute('class', 'token');
     token.style.backgroundColor = this.owner.color;
-  }
-
-  // getter method
-  get htmlToken() {
-    return document.getElementById('game-board-underlay');
-  }
-
-
-  /** 
-   * Gets left offset of html element.
-   * @return  {number}   Left offset of token object's htmlToken.
-   */
-  get offsetLeft() {
-    // this method returns the value of the offsetLeft property of the htmlToken
-    // htmlToken goes before offsetLeft because you're finding the value of the token
-    return this.htmlToken.offsetLeft;
   }
 
 

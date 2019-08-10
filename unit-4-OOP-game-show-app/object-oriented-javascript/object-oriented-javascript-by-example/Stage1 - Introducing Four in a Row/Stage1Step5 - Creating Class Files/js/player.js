@@ -42,7 +42,7 @@ class Player {
       tokens.push(token);
     }
     // when the loop is finished and all the tokens have been created, return the array
-    return tokens; 
+    return tokens;
   }
 
   /**
@@ -62,6 +62,15 @@ class Player {
     // get the first token obect in the array and return it
     return this.unusedTokens[0];
   }
-    
+
+  
+  /**
+   * Check if a player has any undropped tokens left
+   * @return {Boolean} 
+   */
+  checkTokens() {
+    return this.unusedTokens.length == 0 ? false : true;
+  }
+
 
 }
