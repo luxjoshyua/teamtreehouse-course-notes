@@ -1,0 +1,77 @@
+-- Introduction --
+- Git is a distributed version control system (VCS), meaning every copy of the repository stores all the old
+versions of the files; they're not just stored on one central server. 
+- The value of a distributed VCS as opposed to a centralised system is that if something happens to the 
+version history on one repository, the history on any other copy of the repository can be used to restore it
+
+-- Three Steps of a git file --
+1. Modified
+2. Staged
+3. Committed
+
+
+-- Common Commands --
+
+$ git --help // outputs help manual
+
+$ git clone [url] // clones the repo 
+
+$ git init // tells git to start watching the folder
+
+$ git add . // adds all files to staging ready for committing
+$ git add chapter1.txt // just adds that file to the staging area for committing
+
+$ git status
+
+$ git commit -m "message here" // commits changes with your message
+
+$ git pull // pulls the changes to the repo (always do before push)
+$ git push // pushes your local changes to the repo  
+// pull and push are used to syncronise commits with remote repositories
+
+$ git log // view a list of old commits - type q to quit the log
+$ git log -p // prints a log of all the changes in the repo
+$ git diff // shows the differences in each file
+$ git diff --staged // compares your staged changes against the previous commit 
+
+$ git mv 
+$ git rm - move and remove files tracked by Git
+$ git rm --cached <file> // unstage file
+$ git rm --cached *.c // remove all matching files (in this case, all those ending in c)
+
+$ ls // lists files in the current directory (isn't a git command)
+
+$ pwd // shows current directory path
+
+$ cd unit-4-OOP-game-show-app // changes into that child directory from the parent directory 
+
+$ git config --global user.email "you@example.com" // set email
+$ git config --global user.name "Your Name" // set username
+
+
+-- Managing committed files --
+
+$ git rm tin.html // removes the file from the working directory, still needs to be committed, different from $ rm // which deletes totally
+
+$ git mv silver.txt silver.html // moves silver.txt file to silver.html in our working directory
+
+$ git reset HEAD medals.html // unstages the file, can make local edits now, then restage when ready
+
+$ git checkout -- medals.html // discards the changes made to the medals.html file
+
+SHA = Simple Hashing Algorithm
+
+$ git revert c02bf // this reverts back to that change, the SHA number comes from the $git log, you can abbreviate to just the first 5 letters when reverting
+
+$ git revert HEAD // reverts to the most recent commit 
+
+
+-- Cloning a Repository --
+
+
+
+
+
+
+-- Resources --
+https://kbroman.org/github_tutorial/pages/init.html - Excellent guide on initialising a new repo

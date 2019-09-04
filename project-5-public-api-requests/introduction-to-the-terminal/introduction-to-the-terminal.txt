@@ -1,0 +1,70 @@
+Nearly all commands follow a common pattern with 3 main parts; the program, the options, and the arguments
+$ ls -l ~ // long form describing each file in that directory 
+    ls (list) is the program
+    -l (long) is the option
+    ~ (shorthand name for a specia folder on your computer; the home folder) is the argument 
+
+
+$ cd ~/workspace/library/non-fiction // change to that directory from anywhere
+$ cd ~/documents/websites // change to that directory from anywhere
+
+$ ls // lists all the files in that directory
+
+$ pwd // shows the file path you're on
+
+$ more terminal.txt // prints the text content of that file
+
+$ less terminal.txt // show the contents of a file in a scrolling buffer, does similar to $more, but doesn't automatically quit when you reach the bottom of the document,
+allows you to keep scrolling
+
+$ cp bird.txt pigeon.txt // copies bird.txt into pigeon.txt
+
+$ cp bird.txt mall/ // copy bird.txt into the mall directory
+
+$ cd . // go down one directory
+
+$ cd .. // navigate up one directory
+
+$ cd ~/Documents // navigate to the documents folder
+
+$ mv bird.txt sparrow.txt // move contents of bird.txt into sparrow.txt, deletes the original bird.txt file
+
+$ mv cart.txt mall/ // move cart.txt file into mall directory
+
+$ *.txt // find all .txt files
+
+$ rm bird.txt // removes that folder permanently, doesn't go to recycle bin!
+
+$ rm more_offices/ // won't work, can't delete directories
+
+$ rm -r more_offices // will delete more_offices directory and its containing files because you included -r (recursively)
+
+$ mkdir park // make a directory called park
+
+$ mkdir -p envelope/letter // makes a parent directory envelope, and a child letter
+
+$ cp -r tickets/ tickets_backup // copy the tickets directory and all its contents to a new tickets_backup directory
+
+$ mkdir -p features/ideas // create a new features directory with a new ideas subdirectory inside it
+
+$ more profile.txt // view the contents of the profile.txt file using a pager program
+
+$ man ls // brings up manual on the ls command, to quit hit q
+
+$ ls -l // lists additional information about the file
+
+$ find // goes through the directory and prints all its files 
+
+$ find -name "*.txt" // find all files in that directory ending in .txt 
+
+$ grep 'Windows' terminal.txt // will print lines in the terminal.txt file that contain 'Windows' 
+
+$ grep 'Mac' terminal.txt // does the same as above but for Mac
+
+$ vi myfile.txt // edit myfile.txt , but first have to hit i to insert text
+
+$ cat myfile.txt // show the contents of the myfile.txt file
+
+$ nano file2.txt // edit the contents using nano 
+
+$ touch // make a new empty file 
