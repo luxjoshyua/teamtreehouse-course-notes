@@ -1,0 +1,75 @@
+-- HTTP Introduction --
+    - HTTP is called a stateless protocol, meaning there is no record of previous interactions,
+    and each interaction is processed only with the information that comes with that particular
+    interaction
+    - This is important, because there is nothing inherent in HTTP that makes it remember a previous
+    request that could be used to inform a later request
+    - Think of HTTP like self-destructing notes after they are read
+    - Think of a browser like a GUI for HTTP; without a browser, the HTTP will still work,
+    it just won't be particularly engaging
+
+-- First Step - Connect! --
+telnet httpbin.org 80 // first you need to connect in the terminal
+
+-- Second Step - Request! --
+HTTP Request Format
+In general, there are four parts in a request
+ 1) The request line
+ 2) A series of headers with name/value pairs on separate lines
+ 3) A blank line
+ 4) If the request is a POST request, a body or payload
+
+Request-Line: GET /xml HTTP/1.1 
+Headers: Host: httpbin.org
+        User-Agent: telnet
+        Accept-Language: en-US // tells server which language we prefer for the response
+Blank Line // nothing here
+Request Body aka Payload (optional, only for POST requests, not GET requests, you don't see a payload 
+in a GET request)
+
+-- Third Step - Response! --
+HTTP Response Format
+Raw HTML 
+
+
+GET vs POST
+GET is a read-only request, POST is for when we want to make changes to the server (e.g. delete files from the server, upload image/s)
+
+-- Sending Data with a GET Request --
+First connect = $ telnet httpbin.org 80
+
+Second request = $ GET /get?firstname=Chris&language=English HTTP/1.1
+                $ Host: httpbin.org
+
+                second example
+                $ GET /get?company=Treehouse&city=Portland HTTP/1.1
+                $ Host: httpbin.org
+
+                third example of HTTP request
+                $ GET /books?type=kindle&sort=popular HTTP/1.1 
+                $ Host: amazon.com 
+                $ Accept-Language: en-US
+
+Third response = could be in JSON format
+
+
+-- Sending Data with a POST Request --
+- purpose of a POST request is to make a change on the server (unlike POST) e.g. update a file to the server, 
+upload a photo, delete a file
+
+$ telnet httpbin.org 80
+
+$ POST /post HTTP/1.1
+$ Host: httpbin.org
+$ Content-Length: 32 (for 32 bytes, because we're passing 32 characters in the query below (firstname...))
+// if you get the content-lenght wrong, will throw an error, likely 400 for bad HTTP request
+// Need to leave a space here
+$ firstname=Chris&language=English
+
+
+-- HTTP and the Browser -- 
+To see a HTTP request on a page, open devtools, go to Network, reload, go to Doc tab, then Headers tab
+
+Clicking on a HTML anchor sends a HTTP GET request to the resource located at the URL specified in the 
+anchor's href attribute.
+

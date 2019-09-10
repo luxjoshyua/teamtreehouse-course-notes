@@ -1,0 +1,57 @@
+-- AJAX Introduction --
+- AJAX = Asyncronous JavaScript and XML (eXtensible Markup Language)
+- Its technical term is XMLHttpRequest Object, shortened to XHR
+- JavaScript is used to send out an AJAX request, you use JavaScript to process the incoming response,
+and you use JS to update your webpage.
+- AJAX lets you update content on a web page without loading a new web page e.g. google maps
+- A server answers an AJAX request and sends back a response
+- You use AJAX to communicate with a web server by sending it a request
+- One characteristic of 'asyncronous' AJAX requests is that callbacks for multiple AJAX requests
+may not run in the order the requests were sent 
+- When adding standard AJAX requests to your pages, you need to view that page through a web server
+in order to preview the results. 
+
+-- How AJAX Works --
+1. Create an XMLHTTP Request object - this is the JavaScript object web browsers use to manage AJAX requests
+    - XMLHttpRequest object is often shortened to XHR Object
+    - this step tells the browser to get ready for an AJAX request
+2. Create a callback function
+    - Can never tell which order our AJAX callbacks will run
+3. Open a request
+4. Send the request
+
+
+var xhr = new XMLHttpRequest(); // this is needed for every new AJAX request, recommended you setup a new
+object for each request 
+xhr.onreadystatechange = function () {
+
+}
+
+-- GET and POST --
+GET
+- Use GET when receiving, requesting or 'getting' information from a server e.g. the results of a database search, 
+retrieving a set of tweets
+- With GET, all the data is sent via the URL in query strings, so isn't good for security conscious requests e.g. social security number
+- IE has characer-length restrictions on URLs of 2083 characters, so the amount of data you receive is restricted
+
+POST
+- Use POST when sending data that is going to be saved or stored in a database e.g. email address for a signup form, a vote on a reddit post
+- When sending lots of data from a form, use POST, as GET has to contain all the data in the URL
+- POST sends its data in the 'body' of the request, GET sends data in the URL
+
+-- AJAX Reponse Formats --
+- After you send an AJAX request, your callback function waits for a response.
+Web servers usually reply to AJAX requests with a text response. 
+- JSON is the most popular way of exchanging information with AJAX, XML is trickier
+
+-- AJAX Security Limitations --
+- Web browsers prevent certain types of AJAX requests, such as requests to other web sites, known as a 'same-origin' policy.
+- Typically, browsers will allow requests on the same server but will restrict requests to other servers
+- With same-origin policy, you can't:
+    - use a different protocol e.g. going from http to https
+    - a different port e.g. 8888
+- Ways to circumvent the same-origin policy
+    1. Web proxy; allows you to bypass a web browser's same-origin policy by retrieving data from another server,
+    while keeping AJAX requests within the same domain
+    2. JSONP - JSON with Padding
+    3. CORS - Cross-Origin Resource Sharing - W3C Recommendation, is already setup in most browsers

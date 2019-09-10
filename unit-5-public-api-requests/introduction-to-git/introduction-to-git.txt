@@ -68,6 +68,33 @@ $ git revert HEAD // reverts to the most recent commit
 
 -- Cloning a Repository --
 
+$ git clone https://github.com/treehouse-courses/novel.git websites/ // can specify a different directory from the one currently in
+
+$ git remote // manage set of tracked repositories e.g. origin
+
+$ git remote add myclone [url or local directory path] 
+
+$ git push -u origin master // push the new origin remote from the master branch, typically used when initialising a new repo
+
+
+-- Branches --
+
+$ git branch // show current branch
+
+$ git checkout <branch> // switch to specified branch
+
+$ git checkout -b [name_of_your_new_branch] // create a new branch on local, switch to it
+
+$ git push origin [name_of_your_new_branch] // push the branch on github
+
+$ git branch -a // see all branches created
+
+
+
+
+
+
+
 
 
 
