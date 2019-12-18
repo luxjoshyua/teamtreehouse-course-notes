@@ -3,7 +3,7 @@
  */
 
 // Error handler for handling non-existent routes
-const handleFourOhFour = app.use((req, res, next) => {
+const handleFourOhFour = (req, res, next) => {
     // Log statement to indicate that this function is running 
     console.log('Handling 404 error');
 
@@ -14,10 +14,10 @@ const handleFourOhFour = app.use((req, res, next) => {
 
     // Pass error to global error handler below
     next(err);
-});
+};
 
 // Global error handler
-const handleGlobalError = app.use((err, req, res, next) => {
+const handleGlobalError = (err, req, res, next) => {
     // Log statement to indicate that this function is running
     console.log('Handling a global error');
     console.log(err);
@@ -29,7 +29,7 @@ const handleGlobalError = app.use((err, req, res, next) => {
     // Set error status and send error message to the page 
     res.status(err.status || 500);
     res.send(err.message);
-});
+};
 
 // Export error handlers
 // Assign module.exports an object that references each function
