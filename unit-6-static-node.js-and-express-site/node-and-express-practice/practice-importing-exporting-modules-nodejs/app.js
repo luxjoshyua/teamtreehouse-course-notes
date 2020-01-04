@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 // Import routes
-const mainRoutes = require('./routes');
+const router = require('./routes');
 
 // Import 404 and global error handlers
 const errorHandlers = require('./errorHandlers');
@@ -12,7 +12,7 @@ const errorHandlers = require('./errorHandlers');
 const helpers = require('./helpers');
 
 // Pass route route handlers to the app
-app.use(mainRoutes);
+app.use(router);
 
 // Pass 404 and global error handlers to the app
 // Access each function using dot notation and the name of the function defined in errorHandlers.js
@@ -20,9 +20,8 @@ app.use(errorHandlers.handleFourOhFour);
 app.use(errorHandlers.handleGlobalError);
 
 /*
-* Helpers for Various Tasks
-*/
-
+ * Helpers for Various Tasks
+ */
 // Turn on Express server
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
