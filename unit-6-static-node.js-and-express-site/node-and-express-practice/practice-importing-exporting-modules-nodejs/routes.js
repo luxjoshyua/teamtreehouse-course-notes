@@ -1,9 +1,12 @@
 // Import `express` and set up `express.Router`
 const express = require('express');
-const app = express();
+// const app = express();
 
 // Import helpers module
 const helpers = require('./helpers'); 
+
+// Import routes
+const mainRoutes = require('./routes');
 
 /*
 * Route Handlers

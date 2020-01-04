@@ -11,9 +11,8 @@ const errorHandlers = require('./errorHandlers');
 // Export the two functions from 'helpers.js' and import the module into 'routes.js'
 const helpers = require('./helpers');
 
-
 // Pass route route handlers to the app
-app.use(routes);
+app.use(mainRoutes);
 
 // Pass 404 and global error handlers to the app
 // Access each function using dot notation and the name of the function defined in errorHandlers.js
