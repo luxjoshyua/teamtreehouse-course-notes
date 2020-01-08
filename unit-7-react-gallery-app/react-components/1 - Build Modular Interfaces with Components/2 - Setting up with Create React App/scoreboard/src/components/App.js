@@ -30,7 +30,6 @@ class App extends Component {
     ]
   };
 
-
   // player id counter
   prevPlayerId = 4;
 
@@ -91,13 +90,27 @@ class App extends Component {
     });
   }
 
+
+  getHighScore = () => {
+    // filter through the players state to get all the player scores
+    const scores = this.state.players.map( player => player.score );
+    // use Math.max() to return the largest score value. All scores are passed to 
+    // Math.max() via the spread operator (...scores)
+    const highScore = Math.max(...scores);
+    // then check: if there's a highest score (a score greater than 0), return that score
+    if (highScore) {
+      return highScore;
+    }
+    // otherwise return null because there is no high score
+    return null; 
+  }
+
   render() {
+    const highScore = this.getHighScore();
     return (
+      
       <div className="scoreboard">
-        <Header 
-          title="Scoreboard" 
-          players={this.state.players}
-        />
+        <Header players={this.state.players}/>
   
         {/* Players list */}
         {this.state.players.map( (player, index) =>
@@ -108,7 +121,8 @@ class App extends Component {
             key={player.id.toString()}
             index={index}
             changeScore={this.handleScoreChange}
-            removePlayer={this.handleRemovePlayer}           
+            removePlayer={this.handleRemovePlayer}
+            isHighScore={highScore === player.score}        
           />
         )}
 
