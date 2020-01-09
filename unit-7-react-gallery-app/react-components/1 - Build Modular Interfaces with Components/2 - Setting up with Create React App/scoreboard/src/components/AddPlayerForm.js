@@ -5,7 +5,6 @@ class AddPlayerForm extends Component {
     // render is only called once
     playerInput = React.createRef();
 
-  
     handleSubmit = (e) => {
         // prevent from reloading in the browser, as we'd lose the applicaton state
         e.preventDefault(); 
