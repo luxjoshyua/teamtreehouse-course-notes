@@ -2,9 +2,9 @@
   "name": "sql-orms",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "app-v2.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node app-v2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

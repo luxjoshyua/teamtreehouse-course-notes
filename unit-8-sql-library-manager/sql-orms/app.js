@@ -18,7 +18,7 @@ const sequelize = new Sequelize({
  the extends keyword is used to create a subclass, or a child of another class
   in this case we're extending from Sequelize.Model
  */
-class Movie extends Sequelize.Model {}
+// class Movie extends Sequelize.Model {}
 
 /* Initialise a model by calling init
   Movie.init() defines a new table in the database with the name 'Movies'.
