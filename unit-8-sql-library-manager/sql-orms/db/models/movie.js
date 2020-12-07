@@ -80,10 +80,16 @@ module.exports = (sequelize) => {
     // Model options object
     {
       // disable timestamps
-      timestamps: false,
+      // timestamps: false,
+      // disable plural table names
+      // changes the table name from Movies to Movie
+      freezeTableName: true,
+      // set model name to 'movie'; table name will be 'movies'
+      modelName: "movie",
+      // table name change
+      tableName: "my_movies_table",
       sequelize,
     }
   );
-
   return Movie;
 };
