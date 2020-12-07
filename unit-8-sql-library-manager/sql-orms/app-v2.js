@@ -100,13 +100,14 @@ const { Movie, Person } = db.models;
 
     // use where for more complex AND conditions
     const movies = await Movie.findAll({
+      attributes: ["id", "title"], // return only id and title
       where: {
-        runtime: 92,
+        // runtime: 92,
         isAvailableOnVHS: true,
       },
     });
     // SELECT * FROM Movies WHERE runtime = 92 AND isAvailableOnVHS = true;
-    // console.log(movies.map((movie) => movie.toJSON()));
+    console.log(movies.map((movie) => movie.toJSON()));
   } catch (error) {
     // console.error("Error connecting to the database: ", error);
     if (error.name === "SequelizeValidationError") {
