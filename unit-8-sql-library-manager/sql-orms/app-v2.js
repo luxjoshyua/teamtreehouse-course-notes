@@ -1,6 +1,8 @@
 const { Sequelize } = require("sequelize");
 const db = require("./db");
 const { Movie, Person } = db.models;
+// extract the property Op from db.Sequelize
+const { Op } = db.Sequelize;
 
 (async () => {
   await db.sequelize.sync({ force: true });
@@ -103,8 +105,23 @@ const { Movie, Person } = db.models;
       attributes: ["id", "title"], // return only id and title
       where: {
         // runtime: 92,
-        isAvailableOnVHS: true,
+        // isAvailableOnVHS: true,
+        // title: {
+        //   [Op.endsWith]: "story",
+        // },
+        releaseDate: {
+          // greater than or equal to the date
+          [Op.gte]: "1995-01-01",
+        },
+        // runtime: {
+        //   // greater than 95 minutes
+        //   [Op.gt]: 95,
+        // }
       },
+      // IDs in descending order
+      // order: [["id", "DESC"]],
+      // dates in ascending order so earliest to latest release
+      order: [["releaseDate", "ASC"]],
     });
     // SELECT * FROM Movies WHERE runtime = 92 AND isAvailableOnVHS = true;
     console.log(movies.map((movie) => movie.toJSON()));
