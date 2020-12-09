@@ -39,6 +39,29 @@ const { Op } = db.Sequelize;
     await movie3.save();
     // console.log(movie3.toJSON());
 
+    // update the toy story 3 record using save()
+    // const toyStory3 = await Movie.findByPk(3);
+    // toyStory3.isAvailableOnVHS = true;
+    // the save method needs to be called on the model instance
+    // to save the update to the database
+    // await toyStory3.save();
+    // calling get({ plain:true }) returns the same as calling .toJSON() - a plain object
+    // with just the model attributes and values
+    // console.log(toyStory3.get({ plain: true }));
+
+    // update the toy story 3 record using update()
+    // const toyStory3 = await Movie.findByPk(3);
+    // await toyStory3.update(
+    //   {
+    //     title: "Trinket Tale 3",
+    //     isAvailableOnVHS: true,
+    //     // adding the fields property to the options object, pass it an array holding the string 'isAvailableOnVHS'
+    //     // this says this field is allowed to be updated, so the title won't have been updated because we haven't passed it in the array
+    //   },
+    //   { fields: ["isAvailableOnVHS"] }
+    // );
+    // console.log(toyStory3.get({ plain: true }));
+
     // instance
     const movie4 = await Movie.create({
       title: "Scarface",
@@ -74,57 +97,63 @@ const { Op } = db.Sequelize;
     // console.log(person2.toJSON());
 
     // findByPk() find by primary key method
-    const movieById = await Movie.findByPk(1);
+    // const movieById = await Movie.findByPk(1);
     // console.log(movieById.toJSON());
 
     // findOne() method
-    const movieByRuntime = await Movie.findOne({
-      where: {
-        runtime: 115,
-      },
-    });
+    // const movieByRuntime = await Movie.findOne({
+    //   where: {
+    //     runtime: 115,
+    //   },
+    // });
 
     // console.log(movieByRuntime.toJSON());
 
     // findAll() method
     // retrieves a collection of all records instead of a single instance
-    // const movies = await Movie.findAll();
+    const movies = await Movie.findAll();
     // map over each instance in the array and convert to JSON
-    // console.log(movies.map((movie) => movie.toJSON()));
+    console.log(movies.map((movie) => movie.toJSON()));
 
     // filter results on the findAll() method using where
-    const people = await Person.findAll({
-      where: {
-        lastName: "Hanks",
-      },
-    });
+    // const people = await Person.findAll({
+    //   where: {
+    //     lastName: "Hanks",
+    //   },
+    // });
     // console.log(people.map((person) => person.toJSON()));
 
+    // put the delete after you've created all the instances
+    // find a record
+    // const toyStory = await Movie.findByPk(1);
+    // // delete a record
+    // await toyStory.destroy();
+
     // use where for more complex AND conditions
-    const movies = await Movie.findAll({
-      attributes: ["id", "title"], // return only id and title
-      where: {
-        // runtime: 92,
-        // isAvailableOnVHS: true,
-        // title: {
-        //   [Op.endsWith]: "story",
-        // },
-        releaseDate: {
-          // greater than or equal to the date
-          [Op.gte]: "1995-01-01",
-        },
-        // runtime: {
-        //   // greater than 95 minutes
-        //   [Op.gt]: 95,
-        // }
-      },
-      // IDs in descending order
-      // order: [["id", "DESC"]],
-      // dates in ascending order so earliest to latest release
-      order: [["releaseDate", "ASC"]],
-    });
+    // const movies = await Movie.findAll({
+    //   attributes: ["id", "title"], // return only id and title
+    //   where: {
+    //     // runtime: 92,
+    //     // isAvailableOnVHS: true,
+    //     // title: {
+    //     //   [Op.endsWith]: "story",
+    //     // },
+    //     releaseDate: {
+    //       // greater than or equal to the date
+    //       [Op.gte]: "1995-01-01",
+    //     },
+    //     // runtime: {
+    //     //   // greater than 95 minutes
+    //     //   [Op.gt]: 95,
+    //     // }
+    //   },
+    //   // IDs in descending order
+    //   // order: [["id", "DESC"]],
+    //   // dates in ascending order so earliest to latest release
+    //   order: [["releaseDate", "ASC"]],
+    // });
     // SELECT * FROM Movies WHERE runtime = 92 AND isAvailableOnVHS = true;
-    console.log(movies.map((movie) => movie.toJSON()));
+    // console.log(movies.map((movie) => movie.toJSON()));
   } catch (error) {
     // console.error("Error connecting to the database: ", error);
     if (error.name === "SequelizeValidationError") {

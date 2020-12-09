@@ -88,6 +88,8 @@ module.exports = (sequelize) => {
       modelName: "movie",
       // table name change
       tableName: "my_movies_table",
+      // enable soft deletes
+      paranoid: true,
       sequelize,
     }
   );
