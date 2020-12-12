@@ -1,4 +1,5 @@
 p.by-line
   = article.author
   |  | 
-  = article.createdAt
+  //- access the method created using moment js library
+  = article.publishedAt()
