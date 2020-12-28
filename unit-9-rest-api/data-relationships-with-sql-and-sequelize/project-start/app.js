@@ -32,14 +32,81 @@ console.log("Testing the connection to the database...");
     // Add People to the Database
     console.log("Adding people to the database...");
 
-    // Update the global variables for the people instances
+    const peopleInstances = await Promise.all([
+      Person.create({
+        firstName: "Brad",
+        lastName: "Bird",
+      }),
+      Person.create({
+        firstName: "Vin",
+        lastName: "Diesel",
+      }),
+      Person.create({
+        firstName: "Eli",
+        lastName: "Marienthal",
+      }),
+      Person.create({
+        firstName: "Craig T.",
+        lastName: "Nelson",
+      }),
+      Person.create({
+        firstName: "Holly",
+        lastName: "Hunter",
+      }),
+    ]);
+    // two optional parameters after peopleInstances: replacer and space,
+    //  2 means use 2 space characters for whitespace
+    console.log(JSON.stringify(peopleInstances, null, 2));
+
+    // Update the global variables for the people instances using array destructuring
+    [
+      bradBird,
+      vinDiesel,
+      eliMarienthal,
+      craigTNelson,
+      hollyHunter,
+    ] = peopleInstances;
 
     // Add Movies to the Database
     console.log("Adding movies to the database...");
 
+    const movieInstances = await Promise.all([
+      Movie.create({
+        title: "The Iron Giant",
+        releaseYear: 1999,
+        directorPersonId: bradBird.id,
+      }),
+      Movie.create({
+        title: "The Incredibles",
+        releaseYear: 2004,
+        directorPersonId: bradBird.id,
+      }),
+    ]);
+
+    console.log(JSON.stringify(movieInstances, null, 2));
+
     // Retrieve movies
+    const movies = await Movie.findAll({
+      include: [
+        {
+          model: Person,
+          as: "director",
+        },
+      ],
+    });
+    // plain: true is the same as calling .toJSON(); a plain object with just the model attributes and values
+    console.log(movies.map((movie) => movie.get({ plain: true })));
 
     // Retrieve people
+    const people = await Person.findAll({
+      include: [
+        {
+          model: Movie,
+          as: "director",
+        },
+      ],
+    });
+    console.log(people.map((person) => person.get({ plain: true })));
 
     process.exit();
   } catch (error) {

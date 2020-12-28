@@ -1,26 +1,37 @@
-'use strict';
-const Sequelize = require('sequelize');
+"use strict";
+const Sequelize = require("sequelize");
 
 module.exports = (sequelize) => {
   class Person extends Sequelize.Model {}
-  Person.init({
-    id: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+  Person.init(
+    {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
     },
-    firstName: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-  }, { sequelize });
+    { sequelize }
+  );
 
   Person.associate = (models) => {
     // TODO Add associations.
+    Person.hasMany(models.Movie, {
+      // alias
+      as: "director",
+      foreignKey: {
+        fieldName: "directorPersonId",
+        allowNull: false,
+      },
+    });
   };
 
   return Person;
