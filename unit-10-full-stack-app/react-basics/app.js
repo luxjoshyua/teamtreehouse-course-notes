@@ -1,41 +1,131 @@
 // have to use uppercase for function name
-const Header = () => {
+// pass in the props params
+const Header = (props) => {
   return (
     <header>
-      <h1>Scoreboard</h1>
-      <span className="stats">Players: 1</span>
+      <h1>{props.title}</h1>
+      <span className="stats">Players: {props.totalPlayers}</span>
     </header>
   );
 };
 
-const Player = () => {
+// stateless functional component
+const Player = (props) => {
+  // console.log(props.removePlayer);
   return (
     <div className="player">
-      <span className="player-name">Guil</span>
+      <span className="player-name">
+        <button
+          className="remove-player"
+          onClick={() => props.removePlayer(props.id)}
+        >
+          ✖
+        </button>
+        {props.name}
+      </span>
       <Counter />
     </div>
   );
 };
 
-const Counter = () => {
-  return (
-    <div className="counter">
-      <button className="counter-action decrement"> - </button>
-      <span className="counter-score">30</span>
-      <button className="counter-action increment"> + </button>
-    </div>
-  );
-};
+// stateful functional component
+class Counter extends React.Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     score: 0,
+  //   };
+  // }
 
-const App = () => {
-  return (
-    <div className="scoreboard">
-      <Header />
-      {/* players list */}
-      <Player />
-    </div>
-  );
-};
+  // is the same as writing the above
+  state = {
+    score: 0,
+  };
+
+  incrementScore = () => {
+    // console.log(this);
+    this.setState((prevState) => ({
+      score: prevState.score + 1,
+    }));
+  };
+
+  decrementScore = () => {
+    this.setState((prevState) => ({
+      score: prevState.score - 1,
+    }));
+  };
+
+  render() {
+    return (
+      <div className="counter">
+        <button
+          className="counter-action decrement"
+          onClick={this.decrementScore}
+        >
+          {" "}
+          -{" "}
+        </button>
+        <span className="counter-score">{this.state.score}</span>
+        <button
+          className="counter-action increment"
+          onClick={this.incrementScore}
+        >
+          {" "}
+          +{" "}
+        </button>
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  state = {
+    players: [
+      {
+        name: "Guil",
+        id: 1,
+      },
+      {
+        name: "Treasure",
+        id: 2,
+      },
+      {
+        name: "Ashley",
+        id: 3,
+      },
+      {
+        name: "James",
+        id: 4,
+      },
+    ],
+  };
+
+  handleRemovePlayer = (id) => {
+    this.setState((prevState) => {
+      return {
+        players: prevState.players.filter((player) => player.id !== id),
+      };
+    });
+  };
+
+  render() {
+    return (
+      <div className="scoreboard">
+        <Header title="Scoreboard" totalPlayers={this.state.players.length} />
+
+        {/* players list: player represents the current item being processed in the array */}
+        {this.state.players.map((player) => (
+          <Player
+            name={player.name}
+            id={player.id}
+            key={player.id.toString()}
+            removePlayer={this.handleRemovePlayer}
+          />
+        ))}
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
   // pass the top-level component to ReactDOM.render()
