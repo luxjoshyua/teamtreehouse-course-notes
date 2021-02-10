@@ -1,0 +1,6 @@
+- apply class .is-high-score to the highest score player svg
+
+- the score is found in the players state
+
+- need to then update the highest score with each score change, then pass that info
+to a player, and eventually the svg

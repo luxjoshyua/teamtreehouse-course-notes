@@ -1,35 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 
-class AddPlayerForm extends Component {
-  state = {
-    value: "",
-  };
+const AddPlayerForm = ({ addPlayer }) => {
+  // create a DOM reference to the player input, like getElementById.value
+  let playerInput = React.createRef();
 
-  handleValueChange = (e) => {
-    this.setState({ value: e.target.value });
-  };
-
-  handleSubmit = (e) => {
+  let handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addPlayer(this.state.value);
-    this.setState({ value: " " });
+    addPlayer(playerInput.current.value);
+    // reset the form
+    e.currentTarget.reset();
   };
 
-  render() {
-    // console.log(this.state.value);
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleValueChange}
-          placeholder="Enter a players name"
-        />
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        // puts a reference to the input
+        ref={playerInput}
+        placeholder="Enter a players name"
+      />
 
-        <input type="submit" value="Add player" />
-      </form>
-    );
-  }
-}
+      <input type="submit" value="Add player" />
+    </form>
+  );
+};
 
 export default AddPlayerForm;
