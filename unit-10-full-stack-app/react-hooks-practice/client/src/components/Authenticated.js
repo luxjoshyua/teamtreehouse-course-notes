@@ -4,6 +4,7 @@ import Context from "../Context";
 // first create the context
 
 export default () => {
+  // access the context object in the context file
   let context = useContext(Context.Context);
   const authUser = context.authenticatedUser;
 

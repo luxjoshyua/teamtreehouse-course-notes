@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Public from "./components/Public";
 import NotFound from "./components/NotFound";
-import UserSignUp from "./components/UserSignUp";
+import UserSignUp from "./components/UserSignUp-new";
 import UserSignIn from "./components/UserSignIn";
 import UserSignOut from "./components/UserSignOut";
 import Authenticated from "./components/Authenticated";
 
-import { withContext, Context } from "./Context";
+import { withContext } from "./Context";
 import PrivateRoute from "./PrivateRoute";
 
 const HeaderWithContext = withContext(Header);
@@ -26,12 +26,7 @@ export default () => (
 
       <Switch>
         <Route exact path="/" component={Public} />
-
-        {/* should be able to pass authenticated component directly here so component={Authenticated} 
-          and still see the correct authenticated user on the login screen
-         */}
         <PrivateRoute path="/authenticated" component={Authenticated} />
-
         <Route path="/signin" component={UserSignInWithContext} />
         <Route path="/signup" component={UserSignUpWithContext} />
         <Route path="/signout" component={UserSignOutWithContext} />

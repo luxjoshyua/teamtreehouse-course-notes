@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
 
-export default class UserSignUp extends Component {
+export default class UserSignIn extends Component {
   state = {
-    name: '',
     username: '',
     password: '',
     errors: [],
@@ -12,7 +11,6 @@ export default class UserSignUp extends Component {
 
   render() {
     const {
-      name,
       username,
       password,
       errors,
@@ -21,21 +19,14 @@ export default class UserSignUp extends Component {
     return (
       <div className="bounds">
         <div className="grid-33 centered signin">
-          <h1>Sign Up</h1>
+          <h1>Sign In</h1>
           <Form 
             cancel={this.cancel}
             errors={errors}
             submit={this.submit}
-            submitButtonText="Sign Up"
+            submitButtonText="Sign In"
             elements={() => (
               <React.Fragment>
-                <input 
-                  id="name" 
-                  name="name" 
-                  type="text"
-                  value={name} 
-                  onChange={this.change} 
-                  placeholder="Name" />
                 <input 
                   id="username" 
                   name="username" 
@@ -49,11 +40,11 @@ export default class UserSignUp extends Component {
                   type="password"
                   value={password} 
                   onChange={this.change} 
-                  placeholder="Password" />
+                  placeholder="Password" />                
               </React.Fragment>
             )} />
           <p>
-            Already have a user account? <Link to="/signin">Click here</Link> to sign in!
+            Don't have a user account? <Link to="/signup">Click here</Link> to sign up!
           </p>
         </div>
       </div>
@@ -72,39 +63,10 @@ export default class UserSignUp extends Component {
   }
 
   submit = () => {
-    const { context } = this.props;
-    const {
-      name,
-      username,
-      password,
-    } = this.state;
 
-    // Create user
-    const user = {
-      name,
-      username,
-      password,
-    };
-
-    context.data.createUser(user)
-      .then( errors => {
-        if (errors.length) {
-          this.setState({ errors });
-        } else {
-          context.actions.signIn(username, password)
-            .then(() => {
-              this.props.history.push('/authenticated');    
-            });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.props.history.push('/error');
-      });
-  
   }
 
   cancel = () => {
-   this.props.history.push('/');
+
   }
 }
