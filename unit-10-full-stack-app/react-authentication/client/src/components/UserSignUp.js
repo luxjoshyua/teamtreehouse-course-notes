@@ -39,7 +39,6 @@ export default class UserSignUp extends Component {
                   value={username}
                   onChange={this.change}
                   placeholder="User Name"
-                  autoComplete="username"
                 />
                 <input
                   id="password"
@@ -48,7 +47,6 @@ export default class UserSignUp extends Component {
                   value={password}
                   onChange={this.change}
                   placeholder="Password"
-                  autoComplete="current-password"
                 />
               </React.Fragment>
             )}
@@ -73,7 +71,35 @@ export default class UserSignUp extends Component {
     });
   };
 
-  submit = () => {};
+  submit = () => {
+    const { context } = this.props;
+    const { name, username, password } = this.state;
 
-  cancel = () => {};
+    // Create user
+    const user = {
+      name,
+      username,
+      password,
+    };
+
+    context.data
+      .createUser(user)
+      .then((errors) => {
+        if (errors.length) {
+          this.setState({ errors });
+        } else {
+          context.actions.signIn(username, password).then(() => {
+            this.props.history.push("/authenticated");
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.props.history.push("/error");
+      });
+  };
+
+  cancel = () => {
+    this.props.history.push("/");
+  };
 }
