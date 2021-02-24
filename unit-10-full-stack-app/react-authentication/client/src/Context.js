@@ -18,11 +18,10 @@ export class Provider extends Component {
     const { authenticatedUser } = this.state;
     // value object that provides the utility methods of the class Data
     const value = {
-      authenticatedUser,
       data: this.data,
       actions: {
+        // reference to the signIn function
         signIn: this.signIn,
-        signOut: this.signOut,
       },
     };
     return (
@@ -33,17 +32,6 @@ export class Provider extends Component {
 
   signIn = async (username, password) => {
     const user = await this.data.getUser(username, password);
-    if (user !== null) {
-      this.setState(() => {
-        return {
-          authenticatedUser: user,
-        };
-      });
-      const cookieOptions = {
-        expires: 1, // 1 day
-      };
-      Cookies.set("authenticatedUser", JSON.stringify(user), { cookieOptions });
-    }
     return user;
   };
 

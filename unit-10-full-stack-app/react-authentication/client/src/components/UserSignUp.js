@@ -39,6 +39,7 @@ export default class UserSignUp extends Component {
                   value={username}
                   onChange={this.change}
                   placeholder="User Name"
+                  autoComplete="username"
                 />
                 <input
                   id="password"
@@ -47,6 +48,7 @@ export default class UserSignUp extends Component {
                   value={password}
                   onChange={this.change}
                   placeholder="Password"
+                  autoComplete="current-password"
                 />
               </React.Fragment>
             )}

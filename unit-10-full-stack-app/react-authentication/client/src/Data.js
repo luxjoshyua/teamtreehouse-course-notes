@@ -21,12 +21,21 @@ export default class Data {
       options.body = JSON.stringify(body);
     }
 
+    /* check if auth is required - are we making a request to a protected route on the server
+      if yes, encode user credentials and set HTTP Authorization request header to Basic authentication type,
+      followed by encoded user credentials
+    */
     if (requiresAuth) {
+      // btoa() creates base-64 encoded string
       const encodedCredentials = btoa(
         `${credentials.username}:${credentials.password}`
       );
+
+      // hold the credentials to authenticate the client with the server
+      // encodedCredentials is a series of letters and numbers
       options.headers["Authorization"] = `Basic ${encodedCredentials}`;
     }
+
     return fetch(url, options);
   }
 
