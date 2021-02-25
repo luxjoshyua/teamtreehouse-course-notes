@@ -5,8 +5,9 @@ import Data from "./Data";
 const Context = React.createContext();
 
 export class Provider extends Component {
+  // initialise state
   state = {
-    authenticatedUser: Cookies.getJSON("authenticatedUser") || null,
+    authenticatedUser: null,
   };
 
   constructor() {
@@ -15,9 +16,13 @@ export class Provider extends Component {
   }
 
   render() {
+    // use destructuring assignment to extract authenticatedUser from this.state
     const { authenticatedUser } = this.state;
+
     // value object that provides the utility methods of the class Data
     const value = {
+      // pass state to <Context.Provider> by adding authenticatedUser variable to the value object
+      authenticatedUser,
       data: this.data,
       actions: {
         // reference to the signIn function
@@ -32,6 +37,14 @@ export class Provider extends Component {
 
   signIn = async (username, password) => {
     const user = await this.data.getUser(username, password);
+    // check if there is a user object
+    if (user !== null) {
+      this.setState(() => {
+        return {
+          authenticatedUser: user,
+        };
+      });
+    }
     return user;
   };
 

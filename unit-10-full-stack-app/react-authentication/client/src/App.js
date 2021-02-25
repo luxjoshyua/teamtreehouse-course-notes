@@ -10,18 +10,19 @@ import UserSignOut from "./components/UserSignOut";
 import Authenticated from "./components/Authenticated";
 import withContext from "./Context";
 
+// connect the header component to context
+const HeaderWithContext = withContext(Header);
 // connects the UserSignUp component to context:
 // UserSignUp is now a consuming component that's subscribed
 // to all context changes
 const UserSignUpWithContext = withContext(UserSignUp);
-
 // connect UserSignIn to context
 const UserSignInWithContext = withContext(UserSignIn);
 
 export default () => (
   <Router>
     <div>
-      <Header />
+      <HeaderWithContext />
 
       <Switch>
         <Route exact path="/" component={Public} />

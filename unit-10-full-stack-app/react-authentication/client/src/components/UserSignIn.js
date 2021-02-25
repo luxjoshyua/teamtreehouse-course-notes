@@ -81,8 +81,17 @@ export default class UserSignIn extends Component {
           this.props.history.push("/authenticated");
           console.log(`SUCCESS! ${username} is now signed in!`);
         }
+      })
+      // catch signin errors
+      // parameter err is the rejection reason
+      .catch((err) => {
+        console.log(err);
+        // navigate user from /signin to /error
+        this.props.history.push("/error");
       });
   };
 
-  cancel = () => {};
+  cancel = () => {
+    this.props.history.push("/");
+  };
 }
