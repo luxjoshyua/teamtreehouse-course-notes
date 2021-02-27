@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 
-export default () => {
+// extract the context property from props
+export default ({ context }) => {
+  // store authenticatedUser data
+  const authUser = context.authenticatedUser;
+
   return (
-  <div className="bounds">
-    <div className="grid-100">
-      <h1>You are authenticated!</h1>
+    <div className="bounds">
+      <div className="grid-100">
+        <h1>{authUser.name} is authenticated!</h1>
+        <p>Your username is {authUser.username}.</p>
+      </div>
     </div>
-  </div>
   );
-}
+};

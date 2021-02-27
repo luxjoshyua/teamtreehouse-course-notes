@@ -27,6 +27,8 @@ export class Provider extends Component {
       actions: {
         // reference to the signIn function
         signIn: this.signIn,
+        // reference to the signOut function
+        signOut: this.signOut,
       },
     };
     return (
@@ -48,9 +50,10 @@ export class Provider extends Component {
     return user;
   };
 
+  // Function to sign out a user
   signOut = () => {
+    // update the authenticatedUser state to null on signOut
     this.setState({ authenticatedUser: null });
-    Cookies.remove("authenticatedUser");
   };
 }
 
