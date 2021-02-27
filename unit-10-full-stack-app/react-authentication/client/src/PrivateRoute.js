@@ -14,7 +14,15 @@ export default ({ component: Component, ...rest }) => {
             context.authenticatedUser ? (
               <Component {...props} />
             ) : (
-              <Redirect to="/signin" />
+              <Redirect
+                to={{
+                  // object contains information about the path to redirect to (if not authenticated),
+                  // and the route the user was trying to access before being redirected
+                  pathname: "/signin",
+                  // the state property value is the current location of the route the user tried to access
+                  state: { from: props.location },
+                }}
+              />
             )
           }
         />
