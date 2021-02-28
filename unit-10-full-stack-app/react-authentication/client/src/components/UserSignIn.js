@@ -66,6 +66,9 @@ export default class UserSignIn extends Component {
 
   submit = () => {
     const { context } = this.props;
+    const { from } = this.props.location.state || {
+      from: { pathname: "/authenticated" },
+    };
     // unpacks the two properties from the state object (this.state) into distinct variables
     const { username, password } = this.state;
     // access the signIn function
@@ -78,7 +81,9 @@ export default class UserSignIn extends Component {
             return { errors: ["Sign-in was unsuccessful"] };
           });
         } else {
-          this.props.history.push("/authenticated");
+          // this.props.history.push("/authenticated");
+          // from contains info about the pathname an unauthenticated user redirected from (via this.props.location.state)
+          this.props.history.push(from);
           console.log(`SUCCESS! ${username} is now signed in!`);
         }
       })
